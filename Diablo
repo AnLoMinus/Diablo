@@ -1,5 +1,8 @@
 #!/bin/sh
 clear
+
+# CODE Functions
+DiabloColors(){
 ##############################################################################
 # COLORS AND BACKGROUNDS
 ##############################################################################
@@ -55,8 +58,7 @@ On_Blue='\033[44m'   # Blue
 On_Purple='\033[45m' # Purple
 On_Cyan='\033[46m'   # Cyan
 On_White='\033[47m'  # White
-
-# CODE Functions
+}
 DiabloLogo1(){
 DiabloLogo_1="$(echo "
 ${BRed}                                                 ^${BBlue}:
@@ -97,6 +99,7 @@ echo "$DiabloLogo_1"
 }
 MainMenu(){
 DiabloMenuMain="$(
+DiabloColors
 DiabloLogo1
 echo "${BYellow}
             # 📜 Menu
