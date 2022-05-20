@@ -3,8 +3,6 @@ clear
 ##############################################################################
 # COLORS AND BACKGROUNDS
 ##############################################################################
-# note: \e or \x1B also work instead of \033
-# Reset
 Color_Off='\033[0m' # Text Reset
 
 # Regular Colors
@@ -108,7 +106,7 @@ DiabloMenuMain="$(echo "${BYellow}
             ${BWhite}- ${BRed}[${BYellow}rp${BRed}]${BBlue} Reporting
 
 ${BCyan}            ┌──${BBlue}[${BCyan} Anlominus 👽${BRed} Diablo ${BCyan}$~${BBlue}]
-${BCyan}            └──╼${BYellow}  
+${BCyan}            └──╼${BYellow}
 
 
 ")"
