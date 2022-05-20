@@ -91,8 +91,10 @@ ${BRed}                                                .~${BBlue}7~
 ${BRed}                                                 .${BBlue}:.
 ${BRed}                                                  ${BBlue}.                                                 ")"
 
+
 echo "$DiabloLogo_1"
 
+MainMenu(){
 DiabloMenuMain="$(echo "${BYellow}
             # 📜 Menu
 
@@ -110,5 +112,6 @@ ${BCyan}            └──╼${BYellow}
 
 
 ")"
-
 read -p "$DiabloMenuMain" cmd
+}
+MainMenu
