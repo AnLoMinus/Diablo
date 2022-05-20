@@ -7,6 +7,26 @@ Diablo ~ Hacking / Pentesting Tools
 
   </div>
 
+<details>
+  <summary align="center">
+    <h4> Sources </h4>
+  </summary>
+  
+            # 📜 Menu
+
+            - [as] Anonymity Surfing
+            - [pl] Planning
+            - [sv] Scanning Vulnerability
+            - [ga] Gaining Access
+            - [ma] Maintaining Access
+            - [ct] Covering tracks
+            - [an] Analysis
+            - [rp] Reporting
+
+            ┌──[ Anlominus 👽 Diablo $~]
+            └──╼
+
+</details>
 
 ---
 
