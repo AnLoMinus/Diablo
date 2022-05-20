@@ -56,6 +56,7 @@ On_Purple='\033[45m' # Purple
 On_Cyan='\033[46m'   # Cyan
 On_White='\033[47m'  # White
 
+DiabloLogo1(){
 DiabloLogo_1="$(echo "
 ${BRed}                                                 ^${BBlue}:
 ${BRed}                                                ^!${BBlue}^.
@@ -91,8 +92,9 @@ ${BRed}                                                .~${BBlue}7~
 ${BRed}                                                 .${BBlue}:.
 ${BRed}                                                  ${BBlue}.                                                 ")"
 
-
 echo "$DiabloLogo_1"
+}
+DiabloLogo1
 
 MainMenu(){
 DiabloMenuMain="$(echo "${BYellow}
