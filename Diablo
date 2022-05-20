@@ -99,8 +99,8 @@ echo "$DiabloLogo_1"
 }
 MainMenu(){
 DiabloMenuMain="$(
-# DiabloColors
-# DiabloLogo1
+DiabloColors
+DiabloLogo1
 echo "${BYellow}
             # 📜 Menu
 
@@ -114,7 +114,7 @@ echo "${BYellow}
             ${BWhite}- ${BRed}[${BYellow}rp${BRed}]${BBlue} Reporting
 
 ${BCyan}            ┌──${BBlue}[${BCyan} Anlominus 👽${BRed} Diablo ${BCyan}$~${BBlue}]
-${BCyan}            └──╼${BYellow}  
+${BCyan}            └──╼${BYellow}
 
 
 ")"
