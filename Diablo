@@ -101,17 +101,17 @@ MainMenu(){
 DiabloMenuMain="$(
 DiabloColors
 DiabloLogo1
-echo "${BYellow}
+echo "${BGreen}
             # 📜 Menu
 
-            ${BWhite}- ${BRed}[${BYellow}as${BRed}]${BBlue} Anonymity Surfing
-            ${BWhite}- ${BRed}[${BYellow}pl${BRed}]${BBlue} Planning
-            ${BWhite}- ${BRed}[${BYellow}sv${BRed}]${BBlue} Scanning Vulnerability
-            ${BWhite}- ${BRed}[${BYellow}ga${BRed}]${BBlue} Gaining Access
-            ${BWhite}- ${BRed}[${BYellow}ma${BRed}]${BBlue} Maintaining Access
-            ${BWhite}- ${BRed}[${BYellow}ct${BRed}]${BBlue} Covering tracks
-            ${BWhite}- ${BRed}[${BYellow}an${BRed}]${BBlue} Analysis
-            ${BWhite}- ${BRed}[${BYellow}rp${BRed}]${BBlue} Reporting
+          ${BRed}[${BBlue}1${BRed}]${BWhite} -${BBlue} [${BRed}as${BBlue}]${DGrey} Anonymity Surfing
+          ${BRed}[${BBlue}2${BRed}]${BWhite} -${BBlue} [${BRed}pl${BBlue}]${DGrey} Planning
+          ${BRed}[${BBlue}3${BRed}]${BWhite} -${BBlue} [${BRed}sv${BBlue}]${DGrey} Scanning Vulnerability
+          ${BRed}[${BBlue}4${BRed}]${BWhite} -${BBlue} [${BRed}ga${BBlue}]${DGrey} Gaining Access
+          ${BRed}[${BBlue}5${BRed}]${BWhite} -${BBlue} [${BRed}ma${BBlue}]${DGrey} Maintaining Access
+          ${BRed}[${BBlue}6${BRed}]${BWhite} -${BBlue} [${BRed}ct${BBlue}]${DGrey} Covering tracks
+          ${BRed}[${BBlue}7${BRed}]${BWhite} -${BBlue} [${BRed}an${BBlue}]${DGrey} Analysis
+          ${BRed}[${BBlue}8${BRed}]${BWhite} -${BBlue} [${BRed}rp${BBlue}]${DGrey} Reporting
 
 ${BCyan}            ┌──${BBlue}[${BCyan} Anlominus 👽${BRed} Diablo ${BCyan}$~${BBlue}]
 ${BCyan}            └──╼${BYellow}
