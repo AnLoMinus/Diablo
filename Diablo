@@ -1,0 +1,116 @@
+#!/bin/sh
+clear
+##############################################################################
+# COLORS AND BACKGROUNDS
+##############################################################################
+# note: \e or \x1B also work instead of \033
+# Reset
+Color_Off='\033[0m' # Text Reset
+
+# Regular Colors
+Black='\033[0;30m'  # Black
+Red='\033[0;31m'    # Red
+Green='\033[0;32m'  # Green
+Yellow='\033[0;33m' # Yellow
+Blue='\033[0;34m'   # Blue
+Purple='\033[0;35m' # Purple
+Cyan='\033[0;36m'   # Cyan
+White='\033[0;97m'  # White
+
+# Additional colors
+LGrey='\033[0;37m'   # Ligth Gray
+DGrey='\033[0;90m'   # Dark Gray
+LRed='\033[0;91m'    # Ligth Red
+LGreen='\033[0;92m'  # Ligth Green
+LYellow='\033[0;93m' # Ligth Yellow
+LBlue='\033[0;94m'   # Ligth Blue
+LPurple='\033[0;95m' # Light Purple
+LCyan='\033[0;96m'   # Ligth Cyan
+
+
+# Bold
+BBlack='\033[1;30m'  # Black
+BRed='\033[1;31m'    # Red
+BGreen='\033[1;32m'  # Green
+BYellow='\033[1;33m' # Yellow
+BBlue='\033[1;34m'   # Blue
+BPurple='\033[1;35m' # Purple
+BCyan='\033[1;36m'   # Cyan
+BWhite='\033[1;37m'  # White
+
+# Underline
+UBlack='\033[4;30m'  # Black
+URed='\033[4;31m'    # Red
+UGreen='\033[4;32m'  # Green
+UYellow='\033[4;33m' # Yellow
+UBlue='\033[4;34m'   # Blue
+UPurple='\033[4;35m' # Purple
+UCyan='\033[4;36m'   # Cyan
+UWhite='\033[4;37m'  # White
+
+# Background
+On_Black='\033[40m'  # Black
+On_Red='\033[41m'    # Red
+On_Green='\033[42m'  # Green
+On_Yellow='\033[43m' # Yellow
+On_Blue='\033[44m'   # Blue
+On_Purple='\033[45m' # Purple
+On_Cyan='\033[46m'   # Cyan
+On_White='\033[47m'  # White
+
+DiabloLogo_1="$(echo "
+${BRed}                                                 ^${BBlue}:
+${BRed}                                                ^!${BBlue}^.
+${BRed}                  :.                 .         ^~!${BBlue}~:.                           .
+${BRed}               .::^.                .^.        :~~${BBlue}^^.        :.                 .:..:
+${BRed}           ....:^^:                .^^:  :.    :~!${BBlue}~^:   ..  .:^.                 .::::...
+${BRed}         .:...^^.             .    .^::::^.    ^~7${BBlue}!~:   .::.:.^:                   ......:.
+${BRed}      .....::^^           . .!!^^!^:::::::^:...^!?${BBlue}7~:. .:::::.::.:::^!~.             .:...:..
+${BRed}      ....:.::            .^^~:!!~~77^::^::^:::~!7${BBlue}7~~::^^:^:.:.:^!!!^:^:.             ......::
+${BRed}    .. ....:^           .:^^~~!!^::~!!~~^::^^^:~!7${BBlue}!^^:^^::::~!~!^:^^!!!!^.:.           :. .:.::
+${BRed}   ..  .. .:^         ........:?^.:~^~7??7!~^^^^~!${BBlue}~^^^~^!7777^!~::^?7::::...:.         ..  .....
+${BRed}    .     .::    ....:^~~^^^:. ::::~^:~!7?JJ7~~^^~${BBlue}^^^^~7YYJ7^:^~^.:!. .:^~~~~~^:.      ::  ....:
+${BRed}   ..       .^..::^^:::.:^^..   .:::^:^~~~~7Y?~^~!${BBlue}!~!7YJ!~^^^:^~::::   ..^!~::::::::. .:    ....
+${BRed}    .        ..:..:~::.          ::::^^~~7YJ?5JJ~7${BBlue}~~YYYJ5J~~~~~::::       .  :^~!^::^..       ..
+${BRed}     .  .          .            .::^~!7!7?P57!7~!J${BBlue}7~!!~?Y?7!~!~~^.:      .     .. ...         .
+${BRed}     .                          ^:^~!7777!!!!!7?J5${BBlue}YY7!!7!!77!77!^...     .                   .
+${BRed}      ..                        ^:.:^!7?J7~^77!!?P${BBlue}Y7~7?!~!?JJ~:....:    .                   .
+${BRed}        .... .                  .  ....:^.:~?Y7777${BBlue}?J??J7~:.^:...   :. .. .            .....
+${BRed}             .  . ..   .   .          :::.:^!7?77?${BBlue}J?777~^^....               .  .   . .
+${BRed}                                      ^::.:~~!^~~?${BBlue}7~^~~^.:...:
+${BRed}                                     .::^:.~!G?5YY${BBlue}5YYP7^..::^^.
+${BRed}                                   :::^::::~^7!J?J${BBlue}J77?!~::::^:^:.
+${BRed}                                   .:!7^..:!??77??${BBlue}?7?!J7::.::7?!:
+${BRed}                                   ^^7J!:.:.~!!!7?${BBlue}77!!7^.:::~!7~~7.
+${BRed}                                  !B5^:::...:::~!7${BBlue}7!~^:....::::^PGY.
+${BRed}                                 :YP?: .  :.::^::^${BBlue}^:::::.:.. ...~5B7
+${BRed}                                 ~!.       :::~^!7${BBlue}?!^^^:..        ^!.
+${BRed}                                .           ::::~J${BBlue}J?~::::
+${BRed}                                            ...!Y#${BBlue}&#J^.:
+${BRed}                                               ~5P${BBlue}#P?.
+${BRed}                                                7Y${BBlue}PY^
+${BRed}                                                .~${BBlue}7~
+${BRed}                                                 .${BBlue}:.
+${BRed}                                                  ${BBlue}.                                                 ")"
+
+echo "$DiabloLogo_1"
+
+DiabloMenuMain="$(echo "${BYellow}
+            # 📜 Menu
+
+            ${BWhite}- ${BRed}[${BYellow}as${BRed}]${BBlue} Anonymity Surfing
+            ${BWhite}- ${BRed}[${BYellow}pl${BRed}]${BBlue} Planning
+            ${BWhite}- ${BRed}[${BYellow}sv${BRed}]${BBlue} Scanning Vulnerability
+            ${BWhite}- ${BRed}[${BYellow}ga${BRed}]${BBlue} Gaining Access
+            ${BWhite}- ${BRed}[${BYellow}ma${BRed}]${BBlue} Maintaining Access
+            ${BWhite}- ${BRed}[${BYellow}ct${BRed}]${BBlue} Covering tracks
+            ${BWhite}- ${BRed}[${BYellow}an${BRed}]${BBlue} Analysis
+            ${BWhite}- ${BRed}[${BYellow}rp${BRed}]${BBlue} Reporting
+
+${BCyan}            ┌──${BBlue}[${BCyan} Anlominus 👽${BRed} Diablo ${BCyan}$~${BBlue}]
+${BCyan}            └──╼${BYellow}  
+
+
+")"
+
+read -p "$DiabloMenuMain" cmd
