@@ -9,22 +9,22 @@ Diablo ~ Hacking / Pentesting Tools
 
 <details>
   <summary align="center">
-    <h4> Sources </h4>
+    <h4> 📜 Menu </h4>
   </summary>
   
-            # 📜 Menu
+# 📜 Menu
 
-            - [as] Anonymity Surfing
-            - [pl] Planning
-            - [sv] Scanning Vulnerability
-            - [ga] Gaining Access
-            - [ma] Maintaining Access
-            - [ct] Covering tracks
-            - [an] Analysis
-            - [rp] Reporting
+- [as]() Anonymity Surfing
+- [pl]() Planning
+- [sv]() Scanning Vulnerability
+- [ga]() Gaining Access
+- [ma]() Maintaining Access
+- [ct]() Covering tracks
+- [an]() Analysis
+- [rp]() Reporting
 
-            ┌──[ Anlominus 👽 Diablo $~]
-            └──╼
+┌──[ Anlominus 👽 Diablo $~]  
+└──╼  
 
 </details>
 
