@@ -1,0 +1,62 @@
+#!/bin/sh
+Anlominus="Anlominus"
+targetIP="127.0.0.1"
+file="Anlominus-Diablo-Log.md"
+
+read -p " [!] Name of Target / Client: " targetNAME
+if [ -n $targetNAME ]; then
+  #statements
+  echo "Target Name: $targetNAME"
+  targetNAME="Change Me"
+else
+  echo "Target Name: $targetNAME"
+
+fi
+
+
+if [ -e ${file} ]; then
+  read -p " File Exist! Remove it? [yY/nN]: " filexist
+  case $filexist in
+    y|Y)
+    echo " Removing {Anlominus-Diablo-Log.md} file .."
+    rm Anlominus-Diablo-Log.md
+    ;;
+    n|N)
+    echo " Leaving {Anlominus-Diablo-Log.md} file .."
+    ;;
+  esac
+else
+  echo "# Anlominus PenTest Report for $targetNAME " >> Anlominus-Diablo-Log.md
+  echo "### Planning Information" >> Anlominus-Diablo-Log.md
+  echo "#### Date: `date`" >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "---" >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "# 📜 Menu
+
+- [1] Anonymity Surfing
+- [2] Planning
+- [3] Scanning Vulnerability
+- [4] Gaining Access
+- [5] Maintaining Access
+- [6] Covering tracks
+- [7] Analysis
+- [8] Reporting
+
+┌──[ Anlominus 👽 Diablo $~]
+└──╼
+
+" >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "---" >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "# 3) Scanning Vulnerability " >> Anlominus-Diablo-Log.md
+  echo "## Nmap Log $targetIP: " >> Anlominus-Diablo-Log.md
+  echo " `nmap $targetIP` " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "---" >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+
+
+fi
