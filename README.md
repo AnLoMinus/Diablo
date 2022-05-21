@@ -24,6 +24,11 @@ Diablo ~ Hacking / Pentesting Tools
 
 ---
 
+<details>
+  <summary>
+  1) Steps Example
+  </summary>
+
 # Reconnaissance
 - The observation stage:
   - attackers typically assess the situation from the outside-in, in order to identify both targets and tactics for the attack.
@@ -52,6 +57,9 @@ Diablo ~ Hacking / Pentesting Tools
 # Exfiltration
 - The extraction stage:
   - getting data out of the compromised system.
+
+</details>
+
 
 ---
 
