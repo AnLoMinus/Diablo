@@ -30,6 +30,18 @@ Diablo ~ Hacking / Pentesting Tools
     <h4> Sources </h4>
   </summary>
   
+- Inspirational tools
+  - as Anonymity Surfing
+  - pl Planning
+  - sv Scanning Vulnerability
+  - ga Gaining Access
+  - ma Maintaining Access
+  - ct Covering tracks
+  - an Analysis
+  - rp Reporting
+    - [PeTeReport](https://github.com/1modm/petereport)
+    - [PwnDoc](https://github.com/pwndoc/pwndoc)
+
   - Tools:
     - [HacKing](https://github.com/Anlominus/HacKing)
     - [PenTest](https://github.com/Anlominus/PenTest)
