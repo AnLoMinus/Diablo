@@ -114,15 +114,10 @@ echo "${BRed}
 
 
           ${BRed}[${BBlue}1${BRed}]${BWhite} -${BRed} Anonymity Surfing
-
           ${BRed}[${BBlue}2${BRed}]${BWhite} -${BRed} Planning and Scoping
-
           ${BRed}[${BBlue}3${BRed}]${BWhite} -${BRed} Reconnaissance & Vulnerability Assessment
-
           ${BRed}[${BBlue}4${BRed}]${BWhite} -${BRed} Gaining Access & Maintaining Access
-
           ${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Covering tracks
-
           ${BRed}[${BBlue}6${BRed}]${BWhite} -${BRed} Analysis & Reporting
 
 
