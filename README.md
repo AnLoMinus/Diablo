@@ -7,14 +7,14 @@ Diablo ~ Hacking / Pentesting Tools
 
   </div>
 
-# 📜 Menu
+# 📜 Menu / To Do
 
-- [1] - Anonymity Surfing
-- [2] - Planning and Scoping
-- [3] - Reconnaissance & Vulnerability Assessment
-- [4] - Gaining Access & Maintaining Access
-- [5] - Covering tracks
-- [6] - Analysis & Reporting
+- [ ] [1] - Anonymity Surfing
+- [ ] [2] - Planning and Scoping
+- [ ] [3] - Reconnaissance & Vulnerability Assessment
+- [ ] [4] - Gaining Access & Maintaining Access
+- [ ] [5] - Covering tracks
+- [ ] [6] - Analysis & Reporting
 
 ┌──[ Anlominus 👽 Diablo $~]  
 └──╼  
