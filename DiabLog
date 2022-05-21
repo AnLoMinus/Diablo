@@ -4,13 +4,12 @@ targetIP="127.0.0.1"
 file="Anlominus-Diablo-Log.md"
 
 read -p " [!] Name of Target / Client: " targetNAME
-if [ -n $targetNAME ]; then
+if [ -z $targetNAME ]; then
   #statements
-  echo "Target Name: $targetNAME"
   targetNAME="Change Me"
+  echo " Target Name: $targetNAME"
 else
-  echo "Target Name: $targetNAME"
-
+  echo " Target Name: $targetNAME"
 fi
 
 
@@ -23,16 +22,18 @@ if [ -e ${file} ]; then
     ;;
     n|N)
     echo " Leaving {Anlominus-Diablo-Log.md} file .."
+    # exit
     ;;
   esac
-else
-  echo "# Anlominus PenTest Report for $targetNAME " >> Anlominus-Diablo-Log.md
-  echo "### Planning Information" >> Anlominus-Diablo-Log.md
-  echo "#### Date: `date`" >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo "---" >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo "# 📜 Menu
+# else
+fi
+echo "# Anlominus PenTest Report for $targetNAME " >> Anlominus-Diablo-Log.md
+echo "### Planning Information" >> Anlominus-Diablo-Log.md
+echo "#### Date: `date`" >> Anlominus-Diablo-Log.md
+echo " " >> Anlominus-Diablo-Log.md
+echo "---" >> Anlominus-Diablo-Log.md
+echo " " >> Anlominus-Diablo-Log.md
+echo "# 📜 Menu
 
 - [1] Anonymity Surfing
 - [2] Planning
@@ -47,16 +48,13 @@ else
 └──╼
 
 " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo "---" >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo "# 3) Scanning Vulnerability " >> Anlominus-Diablo-Log.md
-  echo "## Nmap Log $targetIP: " >> Anlominus-Diablo-Log.md
-  echo " `nmap $targetIP` " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo "---" >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-
-
-fi
+echo " " >> Anlominus-Diablo-Log.md
+echo "---" >> Anlominus-Diablo-Log.md
+echo " " >> Anlominus-Diablo-Log.md
+echo "# 3) Scanning Vulnerability " >> Anlominus-Diablo-Log.md
+echo "## Nmap Log $targetIP: " >> Anlominus-Diablo-Log.md
+echo " `nmap $targetIP` " >> Anlominus-Diablo-Log.md
+echo " " >> Anlominus-Diablo-Log.md
+echo "---" >> Anlominus-Diablo-Log.md
+echo " " >> Anlominus-Diablo-Log.md
+echo " " >> Anlominus-Diablo-Log.md
