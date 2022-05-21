@@ -1,6 +1,5 @@
 #!/bin/sh
 clear
-
 # CODE Functions
 DiabloColors(){
 ##############################################################################
@@ -107,21 +106,18 @@ echo "${BRed}
 
           ${BRed}[${BBlue}1${BRed}]${BWhite} -${BRed} Anonymity Surfing
 
-          ${BRed}[${BBlue}2${BRed}]${BWhite} -${BRed} Planning and Scoping: \n\t\t${BBlue}Define the purpose of a penetration test: \n\t\t\t${LBlue}Identifying which programs should be checked and how they should be tested
+          ${BRed}[${BBlue}2${BRed}]${BWhite} -${BRed} Planning and Scoping
 
-          ${BRed}[${BBlue}3${BRed}]${BWhite} -${BRed} Reconnaissance: \n\t\t${BBlue}Identifying known vulnerabilities and checking systems for exploits
+          ${BRed}[${BBlue}3${BRed}]${BWhite} -${BRed} Reconnaissance & Vulnerability Assessment
 
-          ${BRed}[${BBlue}4${BRed}]${BWhite} -${BRed} Vulnerability Assessment & Gaining Access: \n\t\t${BBlue}Penetration tester implements a probe on the target network, gathers preliminary data, and analyses the results to determine exploitation routes.
+          ${BRed}[${BBlue}4${BRed}]${BWhite} -${BRed} Gaining Access & Maintaining Access
 
-          ${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Maintaining Access
+          ${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Covering tracks
 
-          ${BRed}[${BBlue}6${BRed}]${BWhite} -${BRed} Covering tracks
+          ${BRed}[${BBlue}6${BRed}]${BWhite} -${BRed} Analysis & Reporting
 
-          ${BRed}[${BBlue}7${BRed}]${BWhite} -${BRed} Analysis
 
-          ${BRed}[${BBlue}8${BRed}]${BWhite} -${BRed} Reporting \n\t\t${BBlue}Creating a report that includes a management review as well as technical information.
-
-${BCyan}            ┌──${BBlue}[${BCyan} Anlominus 👽${BRed} Diablo ${BCyan}$~${BBlue}]
+${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} Diablo ${BCyan}$~${BBlue}]
 ${BCyan}            └──╼${BYellow}
 
 
