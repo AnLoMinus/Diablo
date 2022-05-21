@@ -3,21 +3,18 @@
 # [Diablo](https://github.com/Anlominus/Diablo)
 Diablo ~ Hacking / Pentesting Tools
 
-<img width="822" alt="image" src="https://user-images.githubusercontent.com/51442719/169499979-01bff027-ed81-47f9-9663-2ba13a21b2fe.png">
-
+<img width="801" alt="image" src="https://user-images.githubusercontent.com/51442719/169660825-33c8e3ce-e010-4c2f-9ccc-5fedc4fcd022.png">
 
   </div>
 
 # 📜 Menu
 
-- [as]() Anonymity Surfing
-- [pl]() Planning
-- [sv]() Scanning Vulnerability
-- [ga]() Gaining Access
-- [ma]() Maintaining Access
-- [ct]() Covering tracks
-- [an]() Analysis
-- [rp]() Reporting
+- [1] - Anonymity Surfing
+- [2] - Planning and Scoping
+- [3] - Reconnaissance & Vulnerability Assessment
+- [4] - Gaining Access & Maintaining Access
+- [5] - Covering tracks
+- [6] - Analysis & Reporting
 
 ┌──[ Anlominus 👽 Diablo $~]  
 └──╼  
