@@ -22,34 +22,36 @@ Diablo ~ Hacking / Pentesting Tools
 ┌──[ Anlominus 👽 Diablo $~]  
 └──╼  
 
-- Reconnaissance
-  - The observation stage:
-    - attackers typically assess the situation from the outside-in, in order to identify both targets and tactics for the attack.
+---
 
-- Intrusion
-  - Based on what the attackers discovered in the reconnaissance phase, they’re able to get into your systems:
-    - often leveraging malware or security vulnerabilities.
+# Reconnaissance
+- The observation stage:
+  - attackers typically assess the situation from the outside-in, in order to identify both targets and tactics for the attack.
 
-- Exploitation
-The act of exploiting vulnerabilities, and delivering malicious code onto the system, in order to get a better foothold.
+# Intrusion
+- Based on what the attackers discovered in the reconnaissance phase, they’re able to get into your systems:
+  - often leveraging malware or security vulnerabilities.
 
-- Privilege Escalation
-  - Attackers often need more privileges on a system to get access to more data and permissions:
-    - for this, they need to escalate their privileges often to an Admin.
+# Exploitation
+- The act of exploiting vulnerabilities, and delivering malicious code onto the system, in order to get a better foothold.
 
-- Lateral Movement
-  - Once they’re in the system, attackers can move laterally to other systems and accounts in order to gain more leverage:
-    - whether that’s higher permissions, more data, or greater access to systems.
+# Privilege Escalation
+- Attackers often need more privileges on a system to get access to more data and permissions:
+  - for this, they need to escalate their privileges often to an Admin.
 
-- Obfuscation / Anti-forensics
-  - In order to successfully pull off a cyberattack, attackers need to cover their tracks, and in this stage they often lay false trails, compromise data, and clear logs to confuse and/or slow down any forensics team.
+# Lateral Movement
+- Once they’re in the system, attackers can move laterally to other systems and accounts in order to gain more leverage:
+  - whether that’s higher permissions, more data, or greater access to systems.
 
-- Denial of Service
-  - Disruption of normal access for users and systems, in order to stop the attack from being monitored, tracked, or blocked
+# Obfuscation / Anti-forensics
+- In order to successfully pull off a cyberattack, attackers need to cover their tracks, and in this stage they often lay false trails, compromise data, and clear logs to confuse and/or slow down any forensics team.
 
-- Exfiltration
-  - The extraction stage:
-    - getting data out of the compromised system.
+# Denial of Service
+- Disruption of normal access for users and systems, in order to stop the attack from being monitored, tracked, or blocked
+
+# Exfiltration
+- The extraction stage:
+  - getting data out of the compromised system.
 
 ---
 
