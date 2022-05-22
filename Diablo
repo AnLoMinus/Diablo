@@ -113,12 +113,12 @@ echo "${BRed}
           # 📜 Menu
 
 
-          ${BRed}[${BBlue}1${BRed}]${BWhite} -${BRed} Anonymity Surfing
-          ${BRed}[${BBlue}2${BRed}]${BWhite} -${BRed} Planning and Scoping
-          ${BRed}[${BBlue}3${BRed}]${BWhite} -${BRed} Reconnaissance & Vulnerability Assessment
-          ${BRed}[${BBlue}4${BRed}]${BWhite} -${BRed} Gaining Access & Maintaining Access
-          ${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Covering tracks
-          ${BRed}[${BBlue}6${BRed}]${BWhite} -${BRed} Analysis & Reporting
+          ${BRed}[${BBlue}a${BRed}]${BWhite} -${BRed} Anonymity Surfing
+          ${BRed}[${BBlue}1${BRed}]${BWhite} -${BRed} Planning and Scoping
+          ${BRed}[${BBlue}2${BRed}]${BWhite} -${BRed} Reconnaissance & Vulnerability Assessment
+          ${BRed}[${BBlue}3${BRed}]${BWhite} -${BRed} Gaining Access & Maintaining Access
+          ${BRed}[${BBlue}4${BRed}]${BWhite} -${BRed} Covering tracks
+          ${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Analysis & Reporting
 
 
 ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} Diablo ${BCyan}$~${BBlue}]
@@ -127,6 +127,97 @@ ${BCyan}            └──╼${BYellow}
 
 ")"
 read -p "$DiabloMenuMain" cmd
+case $cmd in
+  a )
+  ;;
+  1 )
+  ;;
+  2 )
+  ;;
+  3 )
+  ;;
+  4 )
+  ;;
+  5 )
+  Anlominus="Anlominus"
+  targetIP="127.0.0.1"
+  file="Anlominus-Diablo-Log.md"
+
+  t1="$(echo "\n  ${BBlue}[${BRed}?${BBlue}] Name of Target / Client: ${BRed}")"
+  read -p "$t1" targetNAME
+  if [ -z $targetNAME ]; then
+    #statements
+    targetNAME="Change Me"
+    echo "\n  ${BRed}Target Name:${BBlue} $targetNAME\n"
+  else
+    echo "\n  ${BRed}Target Name:${BBlue} $targetNAME\n"
+  fi
+
+
+  if [ -e ${file} ]; then
+    t2="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] File Exist! Remove it? [yY/nN]: ")"
+    read -p "$t2 " filexist
+    case $filexist in
+      y|Y)
+      echo " Removing {Anlominus-Diablo-Log.md} file .."
+      rm Anlominus-Diablo-Log.md
+      clear
+      exit
+      ;;
+      n|N)
+      echo " Leaving {Anlominus-Diablo-Log.md} file .."
+      # exit
+      ;;
+    esac
+  # else
+  fi
+  echo "# Anlominus PenTest Report for $targetNAME " >> Anlominus-Diablo-Log.md
+  echo "#### Date: `date`" >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "---" >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "# 📜 Menu
+
+  [a] - Anonymity Surfing
+  [1] - Planning and Scoping
+  [2] - Reconnaissance & Vulnerability Assessment
+  [3] - Gaining Access & Maintaining Access
+  [4] - Covering tracks
+  [5] - Analysis & Reporting
+
+  ┌──[ Anlominus 👽 Diablo $~]
+  └──╼
+
+  " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "---" >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "---" >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "---" >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "# [1] - Planning and Scoping " >> Anlominus-Diablo-Log.md
+  echo "### Planning Log $targetIP: " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+#  [3] - Reconnaissance & Vulnerability Assessment
+  echo "---" >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "# [2] - Reconnaissance & Vulnerability Assessment " >> Anlominus-Diablo-Log.md
+  echo "### Nmap Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " `nmap $targetIP` " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "---" >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  ;;
+esac
 }
 # RUN Functions
 MainMenu
