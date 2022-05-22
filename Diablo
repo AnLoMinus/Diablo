@@ -141,6 +141,7 @@ case $cmd in
   5 )
   Anlominus="Anlominus"
   targetIP="127.0.0.1"
+  read -p "  ${BBlue}[${BRed}?${BBlue}] IP / Host of Target / Client: ${BRed}" targetNAME
   file="Anlominus-Diablo-Log.md"
 
   t1="$(echo "\n  ${BBlue}[${BRed}?${BBlue}] Name of Target / Client: ${BRed}")"
@@ -209,6 +210,10 @@ case $cmd in
   echo "---" >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo "# [2] - Reconnaissance & Vulnerability Assessment " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "### Dig Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " `dig $targetIP` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo "### WhoIs Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
