@@ -209,11 +209,20 @@ case $cmd in
   echo "---" >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo "# [2] - Reconnaissance & Vulnerability Assessment " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "### WhoIs Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " `whois $targetIP` " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
   echo "### Nmap Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo " `nmap $targetIP` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
-  echo "---" >> Anlominus-Diablo-Log.md
+  echo "### Nslookup Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " `nslookup $targetIP` " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+echo "---" >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   ;;
