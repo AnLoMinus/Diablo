@@ -140,8 +140,11 @@ case $cmd in
   ;;
   5 )
   Anlominus="Anlominus"
-  targetIP="127.0.0.1"
   read -p "  ${BBlue}[${BRed}?${BBlue}] IP / Host of Target / Client: ${BRed}" targetIP
+  if [ -z $targetIP ]; then
+    #statements
+    targetIP="127.0.0.1"
+  fi
   file="Anlominus-Diablo-Log.md"
 
   t1="$(echo "\n  ${BBlue}[${BRed}?${BBlue}] Name of Target / Client: ${BRed}")"
@@ -206,26 +209,30 @@ case $cmd in
   echo "# [1] - Planning and Scoping " >> Anlominus-Diablo-Log.md
   echo "### Planning Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
-#  [3] - Reconnaissance & Vulnerability Assessment
+#  [2] - Reconnaissance & Vulnerability Assessment
   echo "---" >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo "# [2] - Reconnaissance & Vulnerability Assessment " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
+  echo "### Ping Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " `ping $targetIP -c4` " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
   echo "### Dig Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
-  echo " `dig $targetIP` " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo "### WhoIs Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo " `whois $targetIP` " >> Anlominus-Diablo-Log.md
+  echo " `dig $targetIP all` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo "### Nmap Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
-  echo " `nmap $targetIP` " >> Anlominus-Diablo-Log.md
+  echo " `nmap $targetIP -d -p-` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo "### Nslookup Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo " `nslookup $targetIP` " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo "### WhoIs Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " `whois $targetIP` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
 echo "---" >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
