@@ -141,7 +141,7 @@ case $cmd in
   5 )
   Anlominus="Anlominus"
   targetIP="127.0.0.1"
-  read -p "  ${BBlue}[${BRed}?${BBlue}] IP / Host of Target / Client: ${BRed}" targetNAME
+  read -p "  ${BBlue}[${BRed}?${BBlue}] IP / Host of Target / Client: ${BRed}" targetIP
   file="Anlominus-Diablo-Log.md"
 
   t1="$(echo "\n  ${BBlue}[${BRed}?${BBlue}] Name of Target / Client: ${BRed}")"
