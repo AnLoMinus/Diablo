@@ -19,6 +19,13 @@ Diablo ~ Hacking / Pentesting Tools
 ┌──[ Anlominus 👽 Diablo $~]  
 └──╼  
 
+# Features
+- Scan URL/IP and Report
+  - ping
+  - nmap
+  - dig
+  - nslookup
+  - whois
 ---
 
 <details>
