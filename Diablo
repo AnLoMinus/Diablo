@@ -237,11 +237,6 @@ case $cmd in
   echo " `dig $targetIP all` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
 #
-  echo "### Nmap Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo " `nmap $targetIP -A -sC -sV -p-` " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-#
   echo "### Nslookup Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo " `nslookup $targetIP` " >> Anlominus-Diablo-Log.md
@@ -252,9 +247,14 @@ case $cmd in
   echo " `whois $targetIP` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
 #
-  echo "### Dirbuster Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
+  echo "### Dirb Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
-  echo " `dirbuster http://$targetIP` " >> Anlominus-Diablo-Log.md
+  echo " `dirb http://$targetIP` " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+#
+  echo "### Nmap Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " `nmap $targetIP -A -sC -sV -p-` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
 #
   echo "---" >> Anlominus-Diablo-Log.md
