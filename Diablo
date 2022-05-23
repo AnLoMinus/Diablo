@@ -239,7 +239,7 @@ case $cmd in
 #
   echo "### Nmap Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
-  echo " `nmap $targetIP -A -sV -p-` " >> Anlominus-Diablo-Log.md
+  echo " `nmap $targetIP -A -sC -sV -p-` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
 #
   echo "### Nslookup Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
