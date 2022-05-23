@@ -161,7 +161,7 @@ case $cmd in
   file="Anlominus-Diablo-Log.md"
 
   if [ -e ${file} ]; then
-    t2="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] File Exist! Leave it & add to it? [yY/nN]: ")"
+    t2="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] File Exist! Remove it? [yY/nN]: ")"
     read -p "$t2 " filexist
     case $filexist in
       y|Y)
