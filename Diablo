@@ -140,42 +140,45 @@ case $cmd in
   ;;
   5 )
   Anlominus="Anlominus"
-  read -p "  ${BBlue}[${BRed}?${BBlue}] IP / Host of Target / Client: ${BRed}" targetIP
+  t1="  ${BBlue}[${BRed}?${BBlue}] IP / Host of Target / Client: ${BRed}"
+  read -p "$t1" targetIP
   if [ -z $targetIP ]; then
     #statements
     targetIP="127.0.0.1"
   fi
-  file="Anlominus-Diablo-Log.md"
 
-  t1="$(echo "\n  ${BBlue}[${BRed}?${BBlue}] Name of Target / Client: ${BRed}")"
-  read -p "$t1" targetNAME
+
+  t2="$(echo "\n  ${BBlue}[${BRed}?${BBlue}] Name of Target / Client: ${BRed}")"
+  read -p "$t2" targetNAME
   if [ -z $targetNAME ]; then
     #statements
-    targetNAME="Change Me"
+    targetNAME="ChangeMe"
     echo "\n  ${BRed}Target Name:${BBlue} $targetNAME\n"
   else
     echo "\n  ${BRed}Target Name:${BBlue} $targetNAME\n"
   fi
 
+  file="Anlominus-Diablo-Log.md"
 
   if [ -e ${file} ]; then
-    t2="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] File Exist! Remove it? [yY/nN]: ")"
+    t2="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] File Exist! Leave it & add to it? [yY/nN]: ")"
     read -p "$t2 " filexist
     case $filexist in
       y|Y)
-      echo " Removing {Anlominus-Diablo-Log.md} file .."
+      echo "  ${BBlue}[${BRed}!${BBlue}] Removing {Anlominus-Diablo-Log.md} file .."
       rm Anlominus-Diablo-Log.md
       clear
       exit
       ;;
       n|N)
-      echo " Leaving {Anlominus-Diablo-Log.md} file .."
+      echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {Anlominus-Diablo-Log.md} file and Add to it .."
       # exit
       ;;
     esac
   # else
   fi
-  echo "# Anlominus PenTest Report for $targetNAME " >> Anlominus-Diablo-Log.md
+  # Page Header
+  echo "# Anlominus PenTest Report for [$targetNAME]() " >> Anlominus-Diablo-Log.md
   echo "#### Date: `date`" >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo "---" >> Anlominus-Diablo-Log.md
@@ -194,47 +197,46 @@ case $cmd in
 
   " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
-  echo "---" >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo "---" >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
-  echo " " >> Anlominus-Diablo-Log.md
+
+#  [1] - Planning and Scoping
   echo "---" >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo "# [1] - Planning and Scoping " >> Anlominus-Diablo-Log.md
   echo "### Planning Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
+
 #  [2] - Reconnaissance & Vulnerability Assessment
   echo "---" >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo "# [2] - Reconnaissance & Vulnerability Assessment " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
+#
   echo "### Ping Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo " `ping $targetIP -c4` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
+#
   echo "### Dig Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo " `dig $targetIP all` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
+#
   echo "### Nmap Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo " `nmap $targetIP -d -p-` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
+#
   echo "### Nslookup Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo " `nslookup $targetIP` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
+#
   echo "### WhoIs Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo " `whois $targetIP` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
-echo "---" >> Anlominus-Diablo-Log.md
+#
+  echo "---" >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   ;;
