@@ -14,7 +14,7 @@ Diablo ~ Hacking / Pentesting Tools
 - [ ] [2] - Reconnaissance & Vulnerability Assessment
 - [ ] [3] - Gaining Access & Maintaining Access
 - [ ] [4] - Covering tracks
-- [ ] [5] - Analysis & Reporting
+- [x] [5] - Analysis & Reporting
 
 ┌──[ Anlominus 👽 Diablo $~]  
 └──╼  
