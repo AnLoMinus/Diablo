@@ -252,6 +252,11 @@ case $cmd in
   echo " `whois $targetIP` " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
 #
+  echo "### Dirb Scan Log $targetIP: " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+  echo " `dirb http://$targetIP` " >> Anlominus-Diablo-Log.md
+  echo " " >> Anlominus-Diablo-Log.md
+#
   echo "---" >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
   echo " " >> Anlominus-Diablo-Log.md
