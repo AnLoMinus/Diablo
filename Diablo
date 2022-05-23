@@ -1,4 +1,19 @@
 #!/bin/sh
+#!/bin/bash
+#!/usr/bin/bash
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/bash
+# Name : Anlominus ~ Diablo
+# Description : Diablo ~ enter you target and get Markdown Report.
+# Date : 2022 May
+# Last UPDATE : 2022 January 30
+# Aouther: Anlominus ~> RhytMix ~> Diablo
+# Skils: Best Copywriter IN the COSMOS!
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
+# CREDIT: To All World Creators free Scripts & Tools
+# Location: Made With LOVE IN ISRAEL !
+# Source: https://github.com/Anlominus/Diablo
+###############################################
 clear
 # CODE Functions
 DiabloColors(){
