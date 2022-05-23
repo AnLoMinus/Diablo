@@ -20,12 +20,13 @@ Diablo ~ Hacking / Pentesting Tools
 └──╼  
 
 # Features
-- Scan URL/IP and Report
-  - ping
-  - nmap
-  - dig
-  - nslookup
-  - whois
+- [ ] [2] - Reconnaissance & Vulnerability Assessment
+  - Scan URL/IP and Report
+    - [x] ping
+    - [x] nmap
+    - [x] dig
+    - [x] nslookup
+    - [x] whois
 ---
 
 <details>
