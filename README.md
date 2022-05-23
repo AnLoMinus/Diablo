@@ -11,7 +11,7 @@ Diablo ~ Hacking / Pentesting Tools
 
 - [ ] [a] - Anonymity Surfing
 - [ ] [1] - Planning and Scoping
-- [ ] [2] - Reconnaissance & Vulnerability Assessment
+- [x] [2] - Reconnaissance & Vulnerability Assessment
 - [ ] [3] - Gaining Access & Maintaining Access
 - [ ] [4] - Covering tracks
 - [x] [5] - Analysis & Reporting
