@@ -3,6 +3,7 @@
 #!/usr/bin/bash
 #!/usr/bin/env bash
 #!/data/data/com.termux/files/usr/bin/bash
+###############################################
 # Name : Anlominus ~ Diablo
 # Description : Diablo ~ enter you target and get Markdown Report.
 # Date : 2022 May
