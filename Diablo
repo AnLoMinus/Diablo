@@ -39,6 +39,7 @@ elif [ `command -v yum` ]; then
   pac="yum"
   system="fedora"
 fi
+
 DiabloColors(){
 ##############################################################################
 # COLORS AND BACKGROUNDS
@@ -279,7 +280,7 @@ ${BCyan}            └──╼ ")
       #
       echo "### Nmap Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
-      echo " `nmap $targetIP -A -sC -sV -p-` " >> ${targetNAME}-Diablo-Log.md
+      echo " `nmap -vv $targetIP -sC -p-` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       #
       echo "---" >> ${targetNAME}-Diablo-Log.md
