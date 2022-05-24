@@ -10,7 +10,7 @@ Diablo ~ Hacking / Pentesting Tools
 # 📜 Menu / To Do
 
 - [ ] [a] - Anonymity Surfing
-- [ ] [1] - Planning and Scoping
+- [x] [1] - Planning and Scoping
 - [x] [2] - Reconnaissance & Vulnerability Assessment
 - [ ] [3] - Gaining Access & Maintaining Access
 - [ ] [4] - Covering tracks
@@ -20,7 +20,11 @@ Diablo ~ Hacking / Pentesting Tools
 └──╼  
 
 # Features
-- [ ] [2] - Reconnaissance & Vulnerability Assessment
+- [x] [1] - Planning and Scoping
+  - [x] Asking for Target: 
+  - [x] Asking for Target Name: 
+
+- [x] [2] - Reconnaissance & Vulnerability Assessment
   - Scan URL/IP and Report to: ${TargetName}-Diablo.Log.md
     - [x] ping
     - [x] nmap
