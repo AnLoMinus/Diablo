@@ -256,16 +256,16 @@ ${BCyan}            └──╼ ")
       echo "# [2] - Reconnaissance & Vulnerability Assessment " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       #
-      echo "\n\t\t${BGreen}### TraceRoute Scan Log"
-      echo "### TraceRoute Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
-      echo " " >> ${targetNAME}-Diablo-Log.md
-      echo " `traceroute $targetIP` " >> ${targetNAME}-Diablo-Log.md
-      echo " " >> ${targetNAME}-Diablo-Log.md
-      #
       echo "\n\t\t${BGreen}### Arp Scan Log"
       echo "### Arp Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo " `arp -an` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "\n\t\t${BGreen}### TraceRoute Scan Log"
+      echo "### TraceRoute Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `traceroute $targetIP` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       #
       echo "\n\t\t${BGreen}### Ping Scan Log"

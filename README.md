@@ -26,8 +26,8 @@ Diablo ~ Hacking / Pentesting Tools
 
 - [x] [2] - Reconnaissance & Vulnerability Assessment
   - Scan ${TargetIP} and Report to: ${TargetName}-Diablo.Log.md
-    - [x] traceroute
     - [x] arp
+    - [x] traceroute
     - [x] ping
     - [x] nmap
     - [x] dig
