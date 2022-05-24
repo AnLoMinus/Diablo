@@ -21,11 +21,13 @@ Diablo ~ Hacking / Pentesting Tools
 
 # Features
 - [x] [1] - Planning and Scoping
-  - [x] Asking for Target IP: 
-  - [x] Asking for Target Name: 
+  - [x] Asking for Target IP:
+  - [x] Asking for Target Name:
 
 - [x] [2] - Reconnaissance & Vulnerability Assessment
   - Scan ${TargetIP} and Report to: ${TargetName}-Diablo.Log.md
+    - [x] traceroute
+    - [x] arp
     - [x] ping
     - [x] nmap
     - [x] dig

@@ -208,24 +208,10 @@ ${BCyan}            └──╼ ")
           ;;
         esac
       fi
-      #  [1] - Planning and Scoping
+      # Page Header
+      echo " " >> ${targetNAME}-Diablo-Log.md
       echo "---" >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
-      echo "\n\t\t\t# [1] - Planning and Scoping "
-      echo "# [1] - Planning and Scoping " >> ${targetNAME}-Diablo-Log.md
-      echo "### Planning Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
-      echo " " >> ${targetNAME}-Diablo-Log.md
-      ;;
-      2 )
-      ;;
-      3 )
-      ;;
-      4 )
-      ;;
-      5 )
-      clear
-      echo "\n\t\t${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Analysis & Reporting"
-      # Page Header
       echo "# Anlominus PenTest Report for $targetNAME " >> ${targetNAME}-Diablo-Log.md
       echo "#### Date: `date`" >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
@@ -245,12 +231,41 @@ ${BCyan}            └──╼ ")
 
       " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
+      echo "---" >> ${targetNAME}-Diablo-Log.md
+      #  [1] - Planning and Scoping
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo "\n\t\t\t# [1] - Planning and Scoping "
+      echo "# [1] - Planning and Scoping " >> ${targetNAME}-Diablo-Log.md
+      echo "### Planning Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo "---" >> ${targetNAME}-Diablo-Log.md
+      ;;
+      2 )
+      ;;
+      3 )
+      ;;
+      4 )
+      ;;
+      5 )
+      clear
+      echo "\n\t\t${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Analysis & Reporting"
 
       #  [2] - Reconnaissance & Vulnerability Assessment
-      echo "---" >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo "\n\t\t# [2] - Reconnaissance & Vulnerability Assessment "
       echo "# [2] - Reconnaissance & Vulnerability Assessment " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "\n\t\t${BGreen}### TraceRoute Scan Log"
+      echo "### TraceRoute Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `traceroute $targetIP` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "\n\t\t${BGreen}### Arp Scan Log"
+      echo "### Arp Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `arp -an` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       #
       echo "\n\t\t${BGreen}### Ping Scan Log"
