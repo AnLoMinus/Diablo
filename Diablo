@@ -7,6 +7,7 @@
 # Name : Anlominus ~ Diablo
 # Description : Diablo ~ enter you target and get Markdown Report.
 # Date : 2022 May
+Anlominus="Anlominus"
 # Last UPDATE : 2022 May 24
 # Aouther: Anlominus ~> RhytMix ~> Diablo
 # Skils: Best Copywriter IN the COSMOS!
@@ -17,6 +18,27 @@
 ###############################################
 clear
 # CODE Functions
+# checking for system package manager
+if [ -e /data/data/com.termux/files/usr/bin/pkg ]; then
+  pac="pkg"
+  system="termux"
+elif [ `command -v brew` ]; then
+  pac="brew"
+  system="mac"
+  sudo=""
+elif [ `command -v apt` ]; then
+  pac="apt"
+  system="linux"
+elif [ `command -v apt-get` ]; then
+  pac="apt-get"
+  system="linux"
+elif [ `command -v apk` ]; then
+  pac="apk"
+  system="linux"
+elif [ `command -v yum` ]; then
+  pac="yum"
+  system="fedora"
+fi
 DiabloColors(){
 ##############################################################################
 # COLORS AND BACKGROUNDS
@@ -74,6 +96,7 @@ On_Purple='\033[45m' # Purple
 On_Cyan='\033[46m'   # Cyan
 On_White='\033[47m'  # White
 }
+DiabloColors
 DiabloLogo1(){
 DiabloLogo_1="$(echo "
 ${BRed}                                                 ^${BBlue}:
@@ -121,146 +144,152 @@ ${LRed}                      ░░░░░░░░░░   ░░░░░  �
 
 echo "$DiabloLogo_1"
 }
+
+
 MainMenu(){
-DiabloMenuMain="$(
-DiabloColors
-DiabloLogo1
-echo "${BRed}
-          # 📜 Menu
+  while true; do
+  #statements
+  clear
+  DiabloLogo1
+  DiabloMenuMain=$(echo "${BRed}
+          ${BBlue}[${BRed}#${BBlue}] 📜 Menu
 
 
-          ${BRed}[${BBlue}a${BRed}]${BWhite} -${BRed} Anonymity Surfing
-          ${BRed}[${BBlue}1${BRed}]${BWhite} -${BRed} Planning and Scoping
-          ${BRed}[${BBlue}2${BRed}]${BWhite} -${BRed} Reconnaissance & Vulnerability Assessment
-          ${BRed}[${BBlue}3${BRed}]${BWhite} -${BRed} Gaining Access & Maintaining Access
-          ${BRed}[${BBlue}4${BRed}]${BWhite} -${BRed} Covering tracks
-          ${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Analysis & Reporting
+          ${BRed}[${LGrey}a${BRed}]${BBlue} -${DGrey} Anonymity Surfing
+          ${BRed}[${LGrey}1${BRed}]${BBlue} -${DGrey} Planning and Scoping
+          ${BRed}[${LGrey}2${BRed}]${BBlue} -${DGrey} Reconnaissance & Vulnerability Assessment
+          ${BRed}[${LGrey}3${BRed}]${BBlue} -${DGrey} Gaining Access & Maintaining Access
+          ${BRed}[${LGrey}4${BRed}]${BBlue} -${DGrey} Covering tracks
+          ${BRed}[${LGrey}5${BRed}]${BBlue} -${DGrey} Analysis & Reporting
+
+          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
 
 ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} Diablo ${BCyan}$~${BBlue}]
-${BCyan}            └──╼  ${BYellow}
+${BCyan}            └──╼ ")
+    read -p "$DiabloMenuMain" cmd
+    case $cmd in
+      a )
+      ;;
+      1 )
+      echo "\t ${BRed}[${BBlue}1${BRed}]${BWhite} -${BRed} Planning and Scoping"
+      #
+      t1="$(echo "\n    ${BRed}[${BBlue}?${BRed}]${BWhite} -${BRed}  IP / Host of Target / Client: ${BRed}")"
+      read -p "$t1" targetIP
+      if [ -z $targetIP ]; then
+    #statements
+    targetIP="127.0.0.1"
+      fi
 
+      #
+      t2="$(echo "\n  ${BBlue}[${BRed}?${BBlue}] Name of Target / Client: ${BRed}")"
+      read -p "$t2" targetNAME
+      if [ -z $targetNAME ]; then
+    #statements
+    targetNAME="ChangeMe"
+    echo "\n  ${BRed}Target Name:${BBlue} $targetNAME\n"
+      fi
 
-")"
-Anlominus="Anlominus"
-#
-t1="$(echo "\n    ${BRed}[${BBlue}?${BRed}]${BWhite} -${BRed}  IP / Host of Target / Client: ${BRed}")"
-read -p "$t1" targetIP
-if [ -z $targetIP ]; then
-  #statements
-  targetIP="127.0.0.1"
-fi
-#
-t2="$(echo "\n  ${BBlue}[${BRed}?${BBlue}] Name of Target / Client: ${BRed}")"
-read -p "$t2" targetNAME
-if [ -z $targetNAME ]; then
-  #statements
-  targetNAME="ChangeMe"
-  echo "\n  ${BRed}Target Name:${BBlue} $targetNAME\n"
-else
-  echo "\n  ${BRed}Target Name:${BBlue} $targetNAME\n"
-fi
-#
-file="${targetNAME}-Diablo-Log.md"
-if [ -e ${file} ]; then
-  t2="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] File Exist! Remove it? [yY/nN]: ")"
-  read -p "$t2 " filexist
-  case $filexist in
-    y|Y)
-    echo "  ${BBlue}[${BRed}!${BBlue}] Removing {${targetNAME}-Diablo-Log.md} file .."
-    rm ${targetNAME}-Diablo-Log.md
-    clear
-    exit
-    ;;
-    n|N)
-    echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetNAME}-Diablo-Log.md} file and Add to it .."
-    ;;
-  esac
-fi
+      #
+      file="${targetNAME}-Diablo-Log.md"
+      if [ -e ${file} ]; then
+    t2="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] File Exist! Remove it? [yY/nN]: ")"
+    read -p "$t2 " filexist
+    case $filexist in
+      y|Y)
+      echo "  ${BBlue}[${BRed}!${BBlue}] Removing {${targetNAME}-Diablo-Log.md} file .."
+      rm ${targetNAME}-Diablo-Log.md
+      clear
+      exit
+      ;;
+      n|N)
+      echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetNAME}-Diablo-Log.md} file and Add to it .."
+      ;;
+    esac
+      fi
+      ;;
+      2 )
+      ;;
+      3 )
+      ;;
+      4 )
+      ;;
+      5 )
+      echo " ${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Analysis & Reporting"
+      # Page Header
+      echo "# Anlominus PenTest Report for $targetNAME " >> ${targetNAME}-Diablo-Log.md
+      echo "#### Date: `date`" >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo "---" >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo "# 📜 Menu
 
-read -p "$DiabloMenuMain" cmd
-case $cmd in
-  a )
-  ;;
-  1 )
-  ;;
-  2 )
-  ;;
-  3 )
-  ;;
-  4 )
-  ;;
-  5 )
+      [a] - Anonymity Surfing
+      [1] - Planning and Scoping
+      [2] - Reconnaissance & Vulnerability Assessment
+      [3] - Gaining Access & Maintaining Access
+      [4] - Covering tracks
+      [5] - Analysis & Reporting
 
-  # Page Header
-  echo "# Anlominus PenTest Report for [$targetNAME]() " >> ${targetNAME}-Diablo-Log.md
-  echo "#### Date: `date`" >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-  echo "---" >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-  echo "# 📜 Menu
+      ┌──[ Anlominus 👽 Diablo $~]
+      └──╼
 
-  [a] - Anonymity Surfing
-  [1] - Planning and Scoping
-  [2] - Reconnaissance & Vulnerability Assessment
-  [3] - Gaining Access & Maintaining Access
-  [4] - Covering tracks
-  [5] - Analysis & Reporting
+      " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
 
-  ┌──[ Anlominus 👽 Diablo $~]
-  └──╼
+      #  [1] - Planning and Scoping
+      echo "---" >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo "# [1] - Planning and Scoping " >> ${targetNAME}-Diablo-Log.md
+      echo "### Planning Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
 
-  " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-
-#  [1] - Planning and Scoping
-  echo "---" >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-  echo "# [1] - Planning and Scoping " >> ${targetNAME}-Diablo-Log.md
-  echo "### Planning Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-
-#  [2] - Reconnaissance & Vulnerability Assessment
-  echo "---" >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-  echo "# [2] - Reconnaissance & Vulnerability Assessment " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-#
-  echo "### Ping Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-  echo " `ping $targetIP -c4` " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-#
-  echo "### Dig Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-  echo " `dig $targetIP all` " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-#
-  echo "### Nslookup Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-  echo " `nslookup $targetIP` " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-#
-  echo "### WhoIs Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-  echo " `whois $targetIP` " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-#
-  echo "### Dirb Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-  echo " `dirb http://$targetIP` " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-#
-  echo "### Nmap Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-  echo " `nmap $targetIP -A -sC -sV -p-` " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-#
-  echo "---" >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-  echo " " >> ${targetNAME}-Diablo-Log.md
-  ;;
-esac
+      #  [2] - Reconnaissance & Vulnerability Assessment
+      echo "---" >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo "# [2] - Reconnaissance & Vulnerability Assessment " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "### Ping Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `ping $targetIP -c4` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "### Dig Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `dig $targetIP all` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "### Nslookup Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `nslookup $targetIP` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "### WhoIs Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `whois $targetIP` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "### Dirb Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `dirb http://$targetIP` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "### Nmap Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `nmap $targetIP -A -sC -sV -p-` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "---" >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      ;;
+      x )
+      clear
+      exit
+      ;;
+    esac
+  done
 }
 # RUN Functions
 MainMenu
