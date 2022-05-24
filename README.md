@@ -3,7 +3,7 @@
 # [Diablo](https://github.com/Anlominus/Diablo)
 Diablo ~ Hacking / Pentesting Tools
 
-<img width="801" alt="image" src="https://user-images.githubusercontent.com/51442719/169661091-5ed6585d-2be0-4706-b3e5-899536e6ca0d.png">
+<img width="801" alt="image" src="https://user-images.githubusercontent.com/51442719/170010336-39176f7e-b5dc-4f31-81ca-4b4144e6938c.png">
 
 </div>
 
