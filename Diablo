@@ -154,6 +154,8 @@ MainMenu(){
   DiabloMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
 
+          ${BBlue}[${BRed}#${BBlue}] 📜 Target: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
 
           ${BRed}[${LGrey}a${BRed}]${BBlue} -${DGrey} Anonymity Surfing
           ${BRed}[${LGrey}1${BRed}]${BBlue} -${DGrey} Planning and Scoping
@@ -172,9 +174,9 @@ ${BCyan}            └──╼ ")
       a )
       ;;
       1 )
-      echo "\t ${BRed}[${BBlue}1${BRed}]${BWhite} -${BRed} Planning and Scoping"
+      echo "\n\t\t${BRed}[${BBlue}1${BRed}]${BWhite} -${BRed} Planning and Scoping"
       #
-      t1="$(echo "\n    ${BRed}[${BBlue}?${BRed}]${BWhite} -${BRed}  IP / Host of Target / Client: ${BRed}")"
+      t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
       read -p "$t1" targetIP
       if [ -z $targetIP ]; then
     #statements
@@ -182,7 +184,7 @@ ${BCyan}            └──╼ ")
       fi
 
       #
-      t2="$(echo "\n  ${BBlue}[${BRed}?${BBlue}] Name of Target / Client: ${BRed}")"
+      t2="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
       read -p "$t2" targetNAME
       if [ -z $targetNAME ]; then
     #statements
