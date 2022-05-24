@@ -92,6 +92,7 @@ Diablo ~ Hacking / Pentesting Tools
     - [PwnDoc](https://github.com/pwndoc/pwndoc)
 
   - Tools:
+    - [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
     - [HacKing](https://github.com/Anlominus/HacKing)
     - [PenTest](https://github.com/Anlominus/PenTest)
     - [LALIN](https://github.com/screetsec/LALIN)
