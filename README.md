@@ -25,7 +25,7 @@ Diablo ~ Hacking / Pentesting Tools
   - [x] Asking for Target Name: 
 
 - [x] [2] - Reconnaissance & Vulnerability Assessment
-  - Scan URL/IP and Report to: ${TargetName}-Diablo.Log.md
+  - Scan ${targetIP} and Report to: ${TargetName}-Diablo.Log.md
     - [x] ping
     - [x] nmap
     - [x] dig
