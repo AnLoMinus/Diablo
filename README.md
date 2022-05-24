@@ -21,12 +21,14 @@ Diablo ~ Hacking / Pentesting Tools
 
 # Features
 - [ ] [2] - Reconnaissance & Vulnerability Assessment
-  - Scan URL/IP and Report
+  - Scan URL/IP and Report to: ${TargetName}-Diablo.Log.md
     - [x] ping
     - [x] nmap
     - [x] dig
     - [x] nslookup
     - [x] whois
+    - [x] dirb
+
 ---
 
 <details>
