@@ -11,7 +11,7 @@ Diablo ~ Hacking / Pentesting & Reporting
 
 - [ ] [a] - Anonymity Surfing
 - [x] [1] - Planning and Scoping
-- [x] [2] - Reconnaissance & Vulnerability Assessment
+- [ ] [2] - Reconnaissance & Vulnerability Assessment
 - [ ] [3] - Gaining Access & Maintaining Access
 - [ ] [4] - Covering tracks
 - [x] [5] - Analysis & Reporting
