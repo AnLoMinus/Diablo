@@ -241,18 +241,11 @@ ${BCyan}            └──╼ ")
       echo "---" >> ${targetNAME}-Diablo-Log.md
       ;;
       2 )
-      ;;
-      3 )
-      ;;
-      4 )
-      ;;
-      5 )
       clear
-      echo "\n\t\t${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Analysis & Reporting"
+      echo "\n\t\t${BRed}[${BBlue}2${BRed}]${BWhite} -${BRed} Reconnaissance & Vulnerability Assessment"
 
       #  [2] - Reconnaissance & Vulnerability Assessment
       echo " " >> ${targetNAME}-Diablo-Log.md
-      echo "\n\t\t# [2] - Reconnaissance & Vulnerability Assessment "
       echo "# [2] - Reconnaissance & Vulnerability Assessment " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       #
@@ -307,6 +300,15 @@ ${BCyan}            └──╼ ")
       echo "---" >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
+      ;;
+      3 )
+      echo "\n\t\t${BRed}[${BBlue}3${BRed}]${BWhite} -${BRed} Gaining Access & Maintaining Access"
+      ;;
+      4 )
+      echo "\n\t\t${BRed}[${BBlue}4${BRed}]${BWhite} -${BRed} Covering tracks"
+      ;;
+      5 )
+      echo "\n\t\t${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Analysis & Reporting"
       ;;
       x )
       clear
