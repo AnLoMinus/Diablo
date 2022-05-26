@@ -294,7 +294,7 @@ ${BCyan}            └──╼ ")
       echo "\n\t\t${BGreen}### Nmap Scan Log "
       echo "### Nmap Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
-      echo " `nmap -vv $targetIP -sC -p-` " >> ${targetNAME}-Diablo-Log.md
+      echo " `nmap -sV -sC -O $targetIP ` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       #
       echo "---" >> ${targetNAME}-Diablo-Log.md
