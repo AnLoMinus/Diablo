@@ -1,8 +1,8 @@
 <div align="center">
 
 # [Diablo](https://github.com/Anlominus/Diablo)
-Diablo ~ Hacking / Pentesting Tools
-
+Diablo ~ Hacking / Pentesting & Reporting
+  
 <img width="801" alt="image" src="https://user-images.githubusercontent.com/51442719/170010336-39176f7e-b5dc-4f31-81ca-4b4144e6938c.png">
 
 </div>
