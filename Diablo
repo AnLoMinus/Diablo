@@ -155,7 +155,7 @@ MainMenu(){
   DiabloMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
 
-          ${BBlue}[${BRed}#${BBlue}] 📜 Target: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 📜 Target IP: ${BRed}${targetIP}
           ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
 
           ${BRed}[${LGrey}a${BRed}]${BBlue} -${DGrey} Anonymity Surfing
