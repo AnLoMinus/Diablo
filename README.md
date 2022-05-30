@@ -50,6 +50,7 @@ Diablo ~ Hacking / Pentesting & Reporting
   - as Anonymity Surfing
   - pl Planning
   - sv Scanning Vulnerability
+    - [RapidScan v1.2](https://github.com/skavngr/rapidscan)
   - ga Gaining Access
   - ma Maintaining Access
   - ct Covering tracks
