@@ -10,6 +10,8 @@ Diablo ~ Hacking / Pentesting & Reporting
 
 </div>
 
+---
+
 # 📜 Menu / To Do
 
 - [ ] [a] - Anonymity Surfing
@@ -22,21 +24,26 @@ Diablo ~ Hacking / Pentesting & Reporting
 ┌──[ Anlominus 👽 Diablo $~]  
 └──╼  
 
+---
+
 # Features
+
 - [x] [1] - Planning and Scoping
   - [x] Asking for Target IP:
-  - [x] Asking for Target Name:
+  - [x] Asking for Target Name:  
 
-- [x] [2] - Reconnaissance & Vulnerability Assessment
-  - Scan ${TargetIP} and Report to: ${TargetName}-Diablo.Log.md
-    - [x] arp
-    - [x] traceroute
-    - [x] ping
-    - [x] nmap
-    - [x] dig
-    - [x] nslookup
-    - [x] whois
-    - [x] dirb
+---
+
+- [x] [2] - Reconnaissance & Vulnerability Assessment 
+- [#] `Scan ${TargetIP} and Report to: ${TargetName}-Diablo.Log.md` 
+  - [x] arp
+  - [x] traceroute
+  - [x] ping
+  - [x] nmap
+  - [x] dig
+  - [x] nslookup
+  - [x] whois
+  - [x] dirb
 
 
 ---
