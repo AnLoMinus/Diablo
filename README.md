@@ -48,10 +48,9 @@ Diablo ~ Hacking / Pentesting & Reporting
 
 ---
 
-<details>
-  <summary align="center">
-    <h4> Sources </h4>
-  </summary>
+# Sources
+
+- [RedTeam](https://github.com/Anlominus/RedTeam)
 
 - Inspirational tools
   - as Anonymity Surfing
@@ -77,5 +76,3 @@ Diablo ~ Hacking / Pentesting & Reporting
   - Cheat Sheets:
     - [CheatSheets](https://github.com/Anlominus/CheatSheets)
 
-
-</details>
