@@ -93,6 +93,7 @@ Diablo ~ Hacking / Pentesting & Reporting
   - ct Covering tracks
   - an Analysis
   - rp Reporting
+    - [OSCP-Exam-Report-Template-Markdown](https://github.com/noraj/OSCP-Exam-Report-Template-Markdown)
     - [PeTeReport](https://github.com/1modm/petereport)
     - [PwnDoc](https://github.com/pwndoc/pwndoc)
 
