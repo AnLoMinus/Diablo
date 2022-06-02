@@ -304,16 +304,18 @@ ${BCyan}            └──╼ ")
       need_dirb="\n\t\t${BYellow}### Need Start Dirb Scan [y/n] ? ${BGreen} "
       read -p "$need_dirb" read_dirb
       case $cmd in
-      y )
-      echo "\n\t\t${BGreen}### Dirb Scan Log "
-      echo "### Dirb Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
-      echo " " >> ${targetNAME}-Diablo-Log.md
-      echo " `dirb http://$targetIP` " >> ${targetNAME}-Diablo-Log.md
-      echo " " >> ${targetNAME}-Diablo-Log.md
-      ;;
-      n )
-      echo "\n\t\t${BYellow}### Dont Need Dirb Scan ! ${BGreen} "
-      ;;      
+        y )
+          echo "\n\t\t${BGreen}### Dirb Scan Log "
+          echo "### Dirb Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+          echo " " >> ${targetNAME}-Diablo-Log.md
+          echo " `dirb http://$targetIP` " >> ${targetNAME}-Diablo-Log.md
+          echo " " >> ${targetNAME}-Diablo-Log.md
+        ;;
+        n )
+          echo "\n\t\t${BYellow}### Dont Need Dirb Scan ! ${BGreen} "
+        ;;
+      esac
+    done
       #
       echo "---" >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
