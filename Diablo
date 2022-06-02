@@ -315,7 +315,6 @@ ${BCyan}            └──╼ ")
           echo "\n\t\t${BYellow}### Dont Need Dirb Scan ! ${BGreen} "
         ;;
       esac
-    done
       #
       echo "---" >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
