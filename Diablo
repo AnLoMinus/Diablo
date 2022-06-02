@@ -156,7 +156,7 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
 
           ${BBlue}[${BRed}#${BBlue}] 📜 Target IP: ${BRed}${targetIP}
-          ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 📜 Target Project Name: ${BRed}${targetNAME}
           ${BBlue}[${BRed}#${BBlue}] 📜 Target Domain Name: ${BRed}${targetDOMAINNAME}
 
           ${BRed}[${LGrey}a${BRed}]${BBlue} -${DGrey} Anonymity Surfing
