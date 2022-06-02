@@ -294,17 +294,26 @@ ${BCyan}            └──╼ ")
       echo " `whois $targetIP` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       #
+      echo "\n\t\t${BGreen}### Nmap Scan Log "
+      echo "### Nmap Scan Log [1-5 Min] $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `nmap -sV -sC -O -p- $targetIP ` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      
+      #
+      need_dirb="\n\t\t${BYellow}### Need Start Dirb Scan [y/n] ? ${BGreen} "
+      read -p "$need_dirb" read_dirb
+      case $cmd in
+      y )
       echo "\n\t\t${BGreen}### Dirb Scan Log "
       echo "### Dirb Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo " `dirb http://$targetIP` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
-      #
-      echo "\n\t\t${BGreen}### Nmap Scan Log "
-      echo "### Nmap Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
-      echo " " >> ${targetNAME}-Diablo-Log.md
-      echo " `nmap -sV -sC -O $targetIP ` " >> ${targetNAME}-Diablo-Log.md
-      echo " " >> ${targetNAME}-Diablo-Log.md
+      ;;
+      n )
+      echo "\n\t\t${BYellow}### Dont Need Dirb Scan ! ${BGreen} "
+      ;;      
       #
       echo "---" >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
