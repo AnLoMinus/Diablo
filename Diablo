@@ -157,6 +157,7 @@ MainMenu(){
 
           ${BBlue}[${BRed}#${BBlue}] 📜 Target IP: ${BRed}${targetIP}
           ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 📜 Target Domain Name: ${BRed}${targetDOMAINNAME}
 
           ${BRed}[${LGrey}a${BRed}]${BBlue} -${DGrey} Anonymity Surfing
           ${BRed}[${LGrey}1${BRed}]${BBlue} -${DGrey} Planning and Scoping
@@ -177,19 +178,27 @@ ${BCyan}            └──╼ ")
       1 )
       echo "\n\t\t${BRed}[${BBlue}1${BRed}]${BWhite} - ${BRed}Planning and Scoping"
       #
-      t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
+      t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Target IP: ${BRed}")"
       read -p "$t1" targetIP
       if [ -z $targetIP ]; then
         #statements
         targetIP="127.0.0.1"
       fi
       #
-      t2="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
+      t2="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Target Project Name: ${BRed}")"
       read -p "$t2" targetNAME
       if [ -z $targetNAME ]; then
         #statements
         targetNAME="ChangeMe"
         echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
+      fi
+      #
+      t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Target Domain Name: ${BRed}")"
+      read -p "$t2" targetDOMAINNAME
+      if [ -z $targetNAME ]; then
+        #statements
+        targetNAME="ChangeMe"
+        echo "\n\t\t${BRed}Target Name: ${BBlue} $targetDOMAINNAME"
       fi
       #
       file="${targetNAME}-Diablo-Log.md"
