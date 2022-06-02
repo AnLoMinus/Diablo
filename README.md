@@ -30,7 +30,7 @@ Diablo ~ Hacking / Pentesting & Reporting
 
 - [x] [1] - Planning and Scoping
   - [x] Asking for Target IP:
-  - [x] Asking for Target Name:  
+  - [x] Asking for Target Project Name:  
   - [x] Asking for Target Domain Name:  
 
 ---
