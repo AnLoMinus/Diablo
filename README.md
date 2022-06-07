@@ -12,6 +12,10 @@ Diablo ~ Hacking / Pentesting & Reporting
 
 ---
 
+<h1> Feel free to sponsor me for the maintenance of the tool: <a href="https://github.com/Anlominus/Diablo">Diablo</a> </h1>
+
+---
+
 # 📜 Menu / To Do
 
 - [ ] [a] - Anonymity Surfing
