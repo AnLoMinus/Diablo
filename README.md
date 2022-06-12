@@ -1,6 +1,4 @@
-
----
-
+> בס״ד
 <div align="center">
 
 <img align="center" width="100" src="https://user-images.githubusercontent.com/51442719/172729066-1293d382-4a31-4f03-8c23-ab0ea5f611a0.png">
