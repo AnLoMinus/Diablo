@@ -20,7 +20,7 @@
 
 <div align="center">
 
-# [Diablo](https://github.com/Anlominus/Diablo)
+# [Diablo](https://github.com/Anlominus/Diablo) `BETA`
   
   <a href=""><br><img title="Made in ISRAEL" src="https://img.shields.io/badge/MADE%20IN-ISRAEL-blue?style=for-the-badge"></a>
 
