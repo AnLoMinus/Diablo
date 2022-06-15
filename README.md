@@ -28,6 +28,10 @@
   <a href=""><br><img title="Made in ISRAEL" src="https://img.shields.io/badge/MADE%20IN-ISRAEL-blue?style=for-the-badge"></a>
 
 Diablo ~ Hacking / Pentesting & Reporting
+
+```shell
+wget https://raw.githubusercontent.com/Anlominus/Diablo/main/Diablo; chmod 777 Diablo;  
+```
   
 <img width="801" alt="image" src="https://user-images.githubusercontent.com/51442719/170010336-39176f7e-b5dc-4f31-81ca-4b4144e6938c.png">
 
