@@ -40,6 +40,10 @@ elif [ `command -v yum` ]; then
   system="fedora"
 fi
 
+pressEnter(){
+  press_Enter=$(echo "\n\t\t${LGreen}Press ${BGreen} ENTER\t\t")
+  read -p "$press_Enter" read_ENTER
+}
 DiabloColors(){
 ##############################################################################
 # COLORS AND BACKGROUNDS
@@ -146,6 +150,64 @@ ${LRed}                      ░░░░░░░░░░   ░░░░░  �
 echo "$DiabloLogo_1"
 }
 
+AnonMainMenu(){
+  while true; do
+  #statements
+  clear
+  DiabloLogo1
+  KoTHMenuMain=$(echo "${BRed}
+          ${BBlue}[${BRed}#${BBlue}] 📜 ${BYellow} Anonimity Surfing Menu
+
+          ${BRed}[${LGrey}1${BRed}]${BBlue} -${DGrey} Anonimity Surfing status
+          ${BRed}[${LGrey}2${BRed}]${BBlue} -${DGrey} Anonimity Surfing start
+          ${BRed}[${LGrey}3${BRed}]${BBlue} -${DGrey} Anonimity Surfing stop
+
+          ${BBlue}[${BRed}#${BBlue}] 📜 ${BYellow} Network Manager Menu
+
+          ${BRed}[${LGrey}4${BRed}]${BBlue} -${DGrey} ifconfig -a
+          ${BRed}[${LGrey}5${BRed}]${BBlue} -${DGrey} ip a
+
+          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+
+${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} KoTH ${BCyan}$~${BBlue}]
+${BCyan}            └──╼ ")
+    read -p "$KoTHMenuMain" cmd
+    case $cmd in
+      1 )
+      echo "${BRed}\n\t\t[${LGrey}1${BRed}]${BBlue} -${DGrey} Anonimity Surfing status"
+      anonsurf status
+      sleep 1
+      ;;
+      2 )
+      echo "${BRed}\n\t\t[${LGrey}2${BRed}]${BBlue} -${DGrey} Anonimity Surfing start"
+      anonsurf start
+      sleep 1
+      ;;
+      3 )
+      echo "${BRed}\n\t\t[${LGrey}3${BRed}]${BBlue} -${DGrey} Anonimity Surfing stop"
+      anonsurf stop
+      sleep 1
+      ;;
+      4 )
+      echo "${BRed}\n\t\t[${LGrey}4${BRed}]${BBlue} -${DGrey} Network status (ifconfig -a)"
+      ifconfig -a
+      sleep 1
+      pressEnter
+      ;;
+      5 )
+      echo "${BRed}\n\t\t[${LGrey}5${BRed}]${BBlue} -${DGrey} Network status (ip a)"
+      ip a
+      sleep 1
+      pressEnter
+      ;;
+      x )
+      clear
+      break
+      ;;
+    esac
+  done
+}
 
 MainMenu(){
   while true; do
@@ -174,6 +236,7 @@ ${BCyan}            └──╼ ")
     read -p "$DiabloMenuMain" cmd
     case $cmd in
       a )
+      AnonMainMenu
       ;;
       1 )
       echo "\n\t\t${BRed}[${BBlue}1${BRed}]${BWhite} - ${BRed}Planning and Scoping"
@@ -299,7 +362,7 @@ ${BCyan}            └──╼ ")
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo " `nmap -sV -sC -O -p- $targetIP ` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
-      
+
       #
       need_dirb="\n\t\t${BYellow}### Need Start Dirb Scan [y/n] ? ${BGreen} "
       read -p "$need_dirb" read_dirb
