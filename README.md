@@ -48,21 +48,6 @@ wget https://raw.githubusercontent.com/Anlominus/Diablo/main/Diablo; chmod 777 D
 # 📜 Menu / To Do
 
 - [x] [a] - Anonymity Surfing
-
-          [#] 📜  Anonimity Surfing Menu
-
-          [1] - Anonimity Surfing status
-          [2] - Anonimity Surfing start
-          [3] - Anonimity Surfing stop
-
-          [#] 📜  Network Manager Menu
-
-          [4] - ifconfig -a
-          [5] - ip a
-
-          [x] - Exit / Quit / Close
-
-
 - [x] [1] - Planning and Scoping
 - [x] [2] - Reconnaissance & Vulnerability Assessment
 - [ ] [3] - Gaining Access & Maintaining Access
@@ -75,6 +60,16 @@ wget https://raw.githubusercontent.com/Anlominus/Diablo/main/Diablo; chmod 777 D
 ---
 
 # Features
+
+- [x] [a] - Anonymity Surfing
+  - [#] 📜  Anonimity Surfing Menu
+    - [1] - Anonimity Surfing status
+    - [2] - Anonimity Surfing start
+    - [3] - Anonimity Surfing stop
+  - [#] 📜  Network Manager Menu
+    - [4] - ifconfig -a
+    - [5] - ip a
+  - [x] - Exit / Quit / Close
 
 - [x] [1] - Planning and Scoping
   - [x] Asking for Target IP:
