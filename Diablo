@@ -4,17 +4,18 @@
 #!/usr/bin/env bash
 #!/data/data/com.termux/files/usr/bin/bash
 ###############################################
-# Name : Anlominus ~ Diablo
+# Name : AnLoMinus ~ Diablo
 # Description : Diablo ~ enter you target and get Markdown Report.
-Anlominus="Anlominus"
+Anlominus="AnLoMinus"
 # Last UPDATE : 06-10-2022
-# Aouther: Anlominus ~> RhytMix ~> Diablo
+# Aouther: AnLoMinus ~> RhytMix ~> Diablo
 # Skils: Best Copywriter IN the COSMOS!
 # BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
 # CREDIT: To All World Creators free Scripts & Tools
 # Location: Made With LOVE IN ISRAEL !
-# Source: https://github.com/Anlominus/Diablo
+# Source: https://github.com/AnLoMinus/Diablo
 ###############################################
+. ../HacKingPro/HacKingPro-Parts/Main/HacKingPro-Planning
 clear
 # CODE Functions
 # checking for system package manager
@@ -149,11 +150,51 @@ ${LRed}                      ░░░░░░░░░░   ░░░░░  �
 echo "$DiabloLogo_1"
 }
 
+#####################################
+#------╼╼▰[ Variables ]--╼▰ [ End ] #
+#####################################
+#-╼▰[ HacKingPro ]-╼▰▰ [ Status ]-╼▰▰ [ Target ]-╼▰▰
+TargetStatus(){
+  echo "
+    ${ORANGE}${faintT}┌──╼${resetT}${BBlue}┤${ORANGE} Target Status ${BBlue}├${ORANGE}${faintT}───────╼${resetT}${BCyan}▰▰▰
+    ${ORANGE}${faintT}│
+    ${ORANGE}${faintT}|──╼${resetT}${ORANGE} ◈ ${BRed}[${DGrey}$(FunTargetIP)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}IP${BBlue}: ${BGreen}${targetIP}
+    ${ORANGE}${faintT}|──╼${resetT}${ORANGE} ◈ ${BRed}[${DGrey}$(FunTargetDns)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Dns${BBlue}: ${BGreen}${targetDns}
+    ${ORANGE}${faintT}|──╼${resetT}${ORANGE} ◈ ${BRed}[${DGrey}$(FunTargetName)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Name${BBlue}: ${BGreen}${targetNAME}
+    ${ORANGE}${faintT}|──╼${resetT}${ORANGE} ◈ ${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Email${BBlue}: ${BGreen}${targetEmail}
+    ${ORANGE}${faintT}|──╼${resetT}${ORANGE} ◈ ${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${ORANGE}${faintT}│
+    ${ORANGE}${faintT}└───────────────────────────────╼${resetT}${BCyan}▰▰▰
+"
+}
+#-╼▰[ HacKingPro ]-╼▰▰ [ Status ]-╼▰▰ [ Target ]-╼▰▰ ╼▰▰ [ Running ]
+TargetStatusRun(){
+  ToolStatus=$(echo "
+    ${InternetStatus}
+    ${BCyan}${faintT}┌──${resetT}${BRed}[${BCyan} ${slowBlink}P${resetT} ${BRed}]${faintT}${BCyan}──${resetT}${BCyan}╼▰ ${BRed}[${faintT}${BCyan} ⚡️ Planning and Scoping 🎯 ${BRed}]${BCyan}${faintT}───────╼${resetT}${BCyan}▰▰▰
+    ${BCyan}${faintT}|
+    ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} Full Time ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} $(date) ${BRed}]
+    ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} Current Date ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} Starting Time ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${BCyan}${faintT}|
+    ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetIP)${BRed}]${BCyan}${faintT}──╼  ${DGrey}[${BGreen}${slowBlink} IP ${resetT}${DGrey}]${BYellow}${faintT}─╼${resetT}${LGreen}▰▰▰  ${DGrey}[ ${BGreen}${targetIP} ${DGrey}]
+    ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetDns)${BRed}]${BCyan}${faintT}──╼  ${DGrey}[${BGreen}${slowBlink} Dns ${resetT}${DGrey}]${BYellow}${faintT}─╼${resetT}${LGreen}▰▰▰  ${DGrey}[ ${BGreen}${targetDns} ${DGrey}]
+    ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetName)${BRed}]${BCyan}${faintT}──╼  ${DGrey}[${BGreen}${slowBlink} Name ${resetT}${DGrey}]${BYellow}${faintT}─╼${resetT}${LGreen}▰▰▰  ${DGrey}[ ${BGreen}${targetNAME} ${DGrey}]
+    ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${BCyan}${faintT}──╼  ${DGrey}[${BGreen}${slowBlink} Email ${resetT}${DGrey}]${BYellow}${faintT}─╼${resetT}${LGreen}▰▰▰  ${DGrey}[ ${BGreen}${targetEmail} ${DGrey}]
+    ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${BCyan}${faintT}──╼  ${DGrey}[${BGreen}${slowBlink} Phone ${resetT}${DGrey}]${BYellow}${faintT}─╼${resetT}${LGreen}▰▰▰  ${DGrey}[ ${BGreen}${targetPhone} ${DGrey}]
+    ${BCyan}${faintT}|
+    ${BCyan}${faintT}└──${resetT}${BRed}[${BCyan} CL ${BRed}]${faintT}${BCyan}──${resetT}${BCyan}╼▰ ${BRed}[${faintT}${BCyan} 🧹 Cleaning Target Variables  🧹 ${BRed}]${BCyan}${faintT}───────╼${resetT}${BCyan}▰▰▰
+    ")
+    echo "$ToolStatus"
+}
+
+
 AnonMainMenu(){
   while true; do
   #statements
   clear
-  DiabloLogo1
+  # DiabloLogo1
+  TargetStatusRun
   KoTHMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 ${BYellow} Anonimity Surfing Menu
 
@@ -169,7 +210,7 @@ AnonMainMenu(){
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
 
-${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} KoTH ${BCyan}$~${BBlue}]
+${BCyan}            ┌──${BBlue}[${BBlue} AnLoMinus 👽${BRed} KoTH ${BCyan}$~${BBlue}]
 ${BCyan}            └──╼ ")
     read -p "$KoTHMenuMain" cmd
     case $cmd in
@@ -212,7 +253,8 @@ MainMenu(){
   while true; do
   #statements
   clear
-  DiabloLogo1
+  # DiabloLogo1
+  TargetStatusRun
   DiabloMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
 
@@ -230,38 +272,14 @@ MainMenu(){
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
 
-${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} Diablo ${BCyan}$~${BBlue}]
+${BCyan}            ┌──${BBlue}[${BBlue} AnLoMinus 👽${BRed} Diablo ${BCyan}$~${BBlue}]
 ${BCyan}            └──╼ ")
     read -p "$DiabloMenuMain" cmd
     case $cmd in
-      a )
-      AnonMainMenu
-      ;;
-      1 )
-      echo "\n\t\t${BRed}[${BBlue}1${BRed}]${BWhite} - ${BRed}Planning and Scoping"
-      #
-      t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Target IP: ${BRed}")"
-      read -p "$t1" targetIP
-      if [ -z $targetIP ]; then
-        #statements
-        targetIP="127.0.0.1"
-      fi
-      #
-      t2="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Target Name: ${BRed}")"
-      read -p "$t2" targetNAME
-      if [ -z $targetNAME ]; then
-        #statements
-        targetNAME="ChangeMe"
-        echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
-      fi
-      #
-      t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Target Domain Name: ${BRed}")"
-      read -p "$t3" targetDNS
-      if [ -z $targetDNS ]; then
-        #statements
-        targetDNS"one.one.one.one"
-        echo "\n\t\t${BRed}Target DNS: ${BBlue} $targetDNS"
-      fi
+      p|P|plan )
+      ReadTargetNameFromtheUser
+      ReadTargetIPFromtheUser
+      ReadTargetURLFromtheUser
       #
       file="${targetNAME}-Diablo-Log.md"
       if [ -e ${file} ]; then
@@ -283,7 +301,7 @@ ${BCyan}            └──╼ ")
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo "---" >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
-      echo " Anlominus PenTest Report $targetNAME " >> ${targetNAME}-Diablo-Log.md
+      echo " AnLoMinus Diablo PenTest Report $targetNAME " >> ${targetNAME}-Diablo-Log.md
       echo "#### Date: `date`" >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo "---" >> ${targetNAME}-Diablo-Log.md
@@ -297,7 +315,7 @@ ${BCyan}            └──╼ ")
       [4] - Covering tracks
       [5] - Analysis & Reporting
 
-      ┌──[ Anlominus 👽 Diablo $~]
+      ┌──[ AnLoMinus 👽 Diablo $~]
       └──╼
 
       " >> ${targetNAME}-Diablo-Log.md
@@ -311,6 +329,9 @@ ${BCyan}            └──╼ ")
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo "---" >> ${targetNAME}-Diablo-Log.md
       ;;
+      a )
+      AnonMainMenu
+      ;;
       2 )
       clear
       echo "\n\t\t${BRed}[${BBlue}2${BRed}]${BWhite} -${BRed} Reconnaissance & Vulnerability Assessment"
@@ -318,6 +339,24 @@ ${BCyan}            └──╼ ")
       #  [2] - Reconnaissance & Vulnerability Assessment
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo "# [2] - Reconnaissance & Vulnerability Assessment " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "\n\t\t${BGreen}### masscan Scan Log"
+      echo "### masscan Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `masscan $targetIP -p0-65535 --max-rate 1000` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "\n\t\t${BGreen}### enum4linux Scan Log"
+      echo "### enum4linux Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `enum4linux $targetIP` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      #
+      echo "\n\t\t${BGreen}### nikto Scan Log"
+      echo "### masscan Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `nikto -h $targetIP` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       #
       echo "\n\t\t${BGreen}### Arp Scan Log"
@@ -361,45 +400,31 @@ ${BCyan}            └──╼ ")
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo " `nmap -sV -sC -O -p- $targetIP ` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
-
       #
       echo "\n\t\t${BGreen}### Dnsenum Scan Log "
       echo "### dnsenum Scan Log [1-5 Min] $targetIP: " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo " `dnsenum $targetDNS ` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
-
       #
       echo "\n\t\t${BGreen}### fierce Scan Log "
       echo "### fierce Scan Log [1-5 Min] $targetIP: " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo " `fierce --domain $targetDNS ` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
-
       #
       echo "\n\t\t${BGreen}### DnsRecon Scan Log "
       echo "### dnsrecon Scan Log [1-5 Min] $targetIP: " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo " `dnsrecon -d $targetDNS ` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
-
-
-
       #
-      need_dirb="\n\t\t${BYellow}### Need Start Dirb Scan [y/n] ? ${BGreen} "
-      read -p "$need_dirb" read_dirb
-      case $cmd in
-        y )
-          echo "\n\t\t${BGreen}### Dirb Scan Log "
-          echo "### Dirb Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
-          echo " " >> ${targetNAME}-Diablo-Log.md
-          echo " `dirb http://$targetIP` " >> ${targetNAME}-Diablo-Log.md
-          echo " " >> ${targetNAME}-Diablo-Log.md
-        ;;
-        n )
-          echo "\n\t\t${BYellow}### Dont Need Dirb Scan ! ${BGreen} "
-        ;;
-      esac
+      echo "\n\t\t${BGreen}### Dirb Scan Log "
+      echo "### Dirb Scan Log $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `dirb http://$targetDNS` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+
       #
       echo "---" >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
