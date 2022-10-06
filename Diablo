@@ -6,9 +6,8 @@
 ###############################################
 # Name : Anlominus ~ Diablo
 # Description : Diablo ~ enter you target and get Markdown Report.
-# Date : 2022 May
 Anlominus="Anlominus"
-# Last UPDATE : 2022 May 24
+# Last UPDATE : 06-10-2022
 # Aouther: Anlominus ~> RhytMix ~> Diablo
 # Skils: Best Copywriter IN the COSMOS!
 # BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
@@ -257,11 +256,11 @@ ${BCyan}            └──╼ ")
       fi
       #
       t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Target Domain Name: ${BRed}")"
-      read -p "$t2" targetDOMAINNAME
-      if [ -z $targetNAME ]; then
+      read -p "$t3" targetDOMAINNAME
+      if [ -z $targetDNS ]; then
         #statements
-        targetNAME="ChangeMe"
-        echo "\n\t\t${BRed}Target Name: ${BBlue} $targetDOMAINNAME"
+        targetDNS"one.one.one.one"
+        echo "\n\t\t${BRed}Target DNS: ${BBlue} $targetDOMAINNAME"
       fi
       #
       file="${targetNAME}-Diablo-Log.md"
@@ -284,7 +283,7 @@ ${BCyan}            └──╼ ")
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo "---" >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
-      echo "# Anlominus PenTest Report for $targetNAME " >> ${targetNAME}-Diablo-Log.md
+      echo " Anlominus PenTest Report $targetNAME " >> ${targetNAME}-Diablo-Log.md
       echo "#### Date: `date`" >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo "---" >> ${targetNAME}-Diablo-Log.md
@@ -361,6 +360,27 @@ ${BCyan}            └──╼ ")
       echo "### Nmap Scan Log [1-5 Min] $targetIP: " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
       echo " `nmap -sV -sC -O -p- $targetIP ` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+
+      #
+      echo "\n\t\t${BGreen}### Dnsenum Scan Log "
+      echo "### dnsenum Scan Log [1-5 Min] $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `dnsenum $targetDNS ` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+
+      #
+      echo "\n\t\t${BGreen}### fierce Scan Log "
+      echo "### fierce Scan Log [1-5 Min] $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `fierce --domain $targetDNS ` " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+
+      #
+      echo "\n\t\t${BGreen}### DnsRecon Scan Log "
+      echo "### dnsrecon Scan Log [1-5 Min] $targetIP: " >> ${targetNAME}-Diablo-Log.md
+      echo " " >> ${targetNAME}-Diablo-Log.md
+      echo " `dnsrecon -d $targetDNS ` " >> ${targetNAME}-Diablo-Log.md
       echo " " >> ${targetNAME}-Diablo-Log.md
 
       #
