@@ -1,0 +1,63 @@
+# Diablo - .gitignore
+
+# Log files
+*-Diablo-Log.md
+*.log
+*.md.bak
+
+# Temporary files
+*.tmp
+*.temp
+*~
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Reports directory (if you want to ignore generated reports)
+reports/
+output/
+
+# Test files (optional - uncomment if needed)
+# test-results/
+# coverage/
+
+# Environment files
+.env
+.env.local
+
+# Build artifacts (if any)
+build/
+dist/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Network capture files
+*.pcap
+*.cap
+
+# Kali/Parrot specific
+~/.bash_history
+~/.zsh_history
+
+# Termux specific
+/data/data/com.termux/
+

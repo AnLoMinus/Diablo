@@ -1,0 +1,60 @@
+# Git attributes for Diablo project
+
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Bash scripts
+*.sh text eol=lf
+Diablo text eol=lf
+
+# Documentation
+*.md text eol=lf
+*.txt text eol=lf
+
+# GitHub workflows
+.github/**/*.yml text eol=lf
+.github/**/*.yaml text eol=lf
+
+# Configuration files
+*.conf text eol=lf
+*.config text eol=lf
+
+# Database files
+*.db -text
+*.sqlite -text
+*.sqlite3 -text
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary
+*.deb binary
+*.rpm binary
+
+# Executables
+*.exe binary
+*.bin binary
+
+# Archives
+*.7z binary
+*.bz2 binary
+*.gz binary
+*.rar binary
+*.tar binary
+*.xz binary
+*.zip binary
+
+# Diff and patch files
+*.diff text
+*.patch text
+*.rej text
+
+# Mark files as linguist-generated (for GitHub stats)
+# Uncomment if you have auto-generated files
+# *.generated.js linguist-generated=true
+

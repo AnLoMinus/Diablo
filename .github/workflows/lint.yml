@@ -1,0 +1,26 @@
+name: ✨ Code Quality
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: 🔍 Lint Code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        env:
+          SHELLCHECK_OPTS: -e SC1090,SC1091
+      
+      - name: Check file permissions
+        run: |
+          ls -la Diablo
+          [ -x Diablo ] && echo "✅ Diablo is executable" || echo "❌ Diablo is not executable"
+

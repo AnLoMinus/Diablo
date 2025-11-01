@@ -1,0 +1,41 @@
+# Code Owners for Diablo
+
+# This file defines code ownership for pull request reviews.
+# Reference: https://help.github.com/en/articles/about-code-owners
+
+# Global owner - everyone requires approval
+* @Anlominus
+
+# Core script - primary maintainer required
+Diablo @Anlominus
+
+# GitHub configuration - community team
+.github/ @Anlominus
+
+# Documentation - anyone can update, but maintainer reviews
+docs/ @Anlominus
+README.md @Anlominus
+CONTRIBUTING.md @Anlominus
+CHANGELOG.md @Anlominus
+
+# Security and compliance - requires maintainer review
+SECURITY.md @Anlominus
+CODE_OF_CONDUCT.md @Anlominus
+LICENSE @Anlominus
+
+# Workflows - requires maintainer review
+.github/workflows/ @Anlominus
+
+# Issue and PR templates - anyone can update
+.github/ISSUE_TEMPLATE/ @Anlominus
+.github/PULL_REQUEST_TEMPLATE.md @Anlominus
+
+# Build and configuration files
+.gitignore @Anlominus
+.gitattributes @Anlominus
+.editorconfig @Anlominus
+.dependabot.yml @Anlominus
+
+# Assets - requires approval
+assets/ @Anlominus
+
