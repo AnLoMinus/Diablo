@@ -10,7 +10,7 @@ jobs:
     name: 📦 Create Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       
       - name: Create Release
         uses: ncipollo/create-action@v1
