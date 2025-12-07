@@ -212,6 +212,8 @@ brew install masscan nmap
 - [ ] תיקון תלות ב-HacKingPro
 - [ ] ממשק Web UI
 
+> למפת דרכים מפורטת וסעיפים מעשיים לכל פרק, עיין ב-[🌟 המשך Roadmap](./docs/ROADMAP_NEXT_STEPS.md).
+
 ---
 
 ## 🙏 קרדיטים
