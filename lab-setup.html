@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diablo · Lab Setup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Reference lab setups for Diablo engagements." />
+  <style>
+    :root {
+      --bg: #05020a;
+      --bg-alt: #0a0714;
+      --card-bg: #0f0a1c;
+      --accent: #ff0033;
+      --accent-soft: rgba(255, 0, 80, 0.22);
+      --accent-2: #00ffcc;
+      --text: #f5f5f5;
+      --muted: #a0a0c0;
+      --border: rgba(255, 255, 255, 0.06);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-strong: 0 0 60px rgba(255, 0, 60, 0.35);
+      --shadow-soft: 0 0 35px rgba(0, 255, 204, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #250016 0, transparent 55%),
+        radial-gradient(circle at bottom, #00131a 0, transparent 60%),
+        linear-gradient(135deg, #010007 0, #060313 40%, #050008 100%);
+      color: var(--text);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .skip-link { position: absolute; left: -999px; top: 0.5rem; padding: 0.5rem 0.9rem; background: #0f0a1c; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-soft); color: var(--text); text-decoration: none; z-index: 100; }
+    .skip-link:focus, .skip-link:focus-visible { left: 1rem; outline: 2px solid var(--accent-2); outline-offset: 3px; }
+
+    body::before {
+      content: "";
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      opacity: 0.11;
+      background-image:
+        linear-gradient(0deg, rgba(255,255,255,0.08) 1px, transparent 1px),
+        radial-gradient(circle at 0 0, rgba(255,255,255,0.12) 0, transparent 50%);
+      background-size: 100% 2px, 260px 260px;
+      mix-blend-mode: soft-light;
+      z-index: -1;
+    }
+
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+    .topbar { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: linear-gradient(to right, rgba(5,2,16,0.94), rgba(5,0,8,0.92)); border-bottom: 1px solid var(--border); }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 1.5rem; gap: 1rem; }
+    .logo-mark { display: flex; align-items: center; gap: 0.7rem; }
+    .logo-circle { width: 32px; height: 32px; border-radius: 999px; background: conic-gradient(from 210deg, #ff0033, #ff9100, #ff00aa, #00ffcc, #ff0033); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; }
+    .logo-circle::after { content: "D"; font-size: 18px; font-weight: 800; color: #05020a; text-shadow: 0 0 10px rgba(0,0,0,0.6); }
+    .logo-text-main { font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.85rem; }
+    .logo-text-sub { font-size: 0.70rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.18em; }
+    .nav-links { display: flex; gap: 1.1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.16em; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a { color: var(--muted); text-decoration: none; position: relative; padding-bottom: 0.2rem; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width 0.2s ease-out; }
+    .nav-links a:hover::after, .nav-links a[aria-current="page"]::after { width: 100%; }
+
+    .section { padding: 3.3rem 0; position: relative; }
+    .section-header { display: grid; gap: 0.5rem; max-width: 760px; margin-bottom: 2rem; }
+    .section-kicker { font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-2); }
+    .section-title { font-size: 2.15rem; margin: 0; letter-spacing: -0.02em; }
+    .section-description { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    .note-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .note-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.2rem; box-shadow: var(--shadow-soft); }
+    .note-title { margin: 0 0 0.4rem 0; display: flex; align-items: center; gap: 0.4rem; letter-spacing: -0.01em; }
+    .note-body { margin: 0 0 0.8rem 0; color: var(--muted); line-height: 1.5; }
+    .checklist { padding-left: 1.2rem; margin: 0 0 0.9rem 0; color: var(--text); line-height: 1.5; }
+    .checklist-item { position: relative; list-style: none; margin-bottom: 0.4rem; padding-left: 1.2rem; }
+    .status-dot { position: absolute; left: 0; top: 0.35rem; width: 0.6rem; height: 0.6rem; border-radius: 999px; }
+    .ready { background: #2add6d; } .info { background: #00b7ff; } .warn { background: #ffc107; }
+    .tag { display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 999px; background: var(--accent-soft); color: var(--text); padding: 0.35rem 0.85rem; font-size: 0.85rem; text-decoration: none; border: 1px solid var(--border); }
+    .list { margin: 0; padding-left: 1.2rem; color: var(--muted); line-height: 1.6; }
+    .list li + li { margin-top: 0.35rem; }
+
+    @media (max-width: 640px) { .topbar-inner { flex-direction: column; align-items: flex-start; } .nav-links { justify-content: flex-start; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="logo-mark">
+        <div class="logo-circle"></div>
+        <div>
+          <div class="logo-text-main">DIABLO</div>
+          <div class="logo-text-sub">PENTESTING · HACKING · REPORTING</div>
+        </div>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#install">Install</a>
+        <a href="index.html#usage">Usage</a>
+        <a href="index.html#readiness">Readiness</a>
+        <a href="index.html#docs">Docs</a>
+        <a href="index.html#pages">Pages</a>
+        <a href="playbooks.html">Playbooks</a>
+        <a href="lab-setup.html" aria-current="page">Lab Setup</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="index.html#roadmap">Roadmap</a>
+        <a href="index.html#security">Security</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section">
+      <div class="container section-header">
+        <div class="section-kicker">🧪 Labs</div>
+        <h1 class="section-title">Build Repeatable &amp; Safe Diablo Labs</h1>
+        <p class="section-description">
+          Lightweight setups for demos, training, and client environments. Keep experiments contained,
+          monitored, and easy to rebuild.
+        </p>
+        <a class="tag" href="index.html#readiness">Return to readiness checklist</a>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-alt);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">🏗️ Baselines</div>
+          <h2 class="section-title">Reference Lab Shapes</h2>
+          <p class="section-description">
+            Pick a profile and clone it. Each baseline keeps isolation and observability front-and-center.
+          </p>
+        </div>
+
+        <div class="note-grid">
+          <article class="note-card">
+            <h3 class="note-title">Solo Research</h3>
+            <p class="note-body">Single host, fast rebuilds.</p>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>1 VM or container snapshot per technique.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Local logging to file + periodic export.</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Reset to golden image weekly.</li>
+            </ul>
+          </article>
+
+          <article class="note-card">
+            <h3 class="note-title">Client Simulation</h3>
+            <p class="note-body">Mini environment for scoped tests.</p>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>AD/DC + app server + defender box.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Segmented networks with clear firewall rules.</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Ops runbook for snapshots and restores.</li>
+            </ul>
+          </article>
+
+          <article class="note-card">
+            <h3 class="note-title">Collab Training</h3>
+            <p class="note-body">Shared practice with rollback.</p>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>Per-user namespaces or VMs.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Centralized logging and SIEM alerts.</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Daily cleanup job to revert state.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">🔒 Hardening</div>
+          <h2 class="section-title">Safety &amp; OpSec Defaults</h2>
+          <p class="section-description">Keep the lab useful without leaking secrets or leaving debris.</p>
+        </div>
+
+        <div class="note-grid">
+          <article class="note-card">
+            <h3 class="note-title">Access Control</h3>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>Unique credentials per operator.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Vault secrets outside of VM snapshots.</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>MFA for gateways and dashboards.</li>
+            </ul>
+          </article>
+
+          <article class="note-card">
+            <h3 class="note-title">Observability</h3>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>Sysmon/Osquery where possible.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Packet capture ring buffer with retention policy.</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Alert on beacon-like traffic leaving the lab.</li>
+            </ul>
+          </article>
+
+          <article class="note-card">
+            <h3 class="note-title">Recovery</h3>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>Documented rollback steps per host.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Immutable backups for clean baselines.</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Post-engagement cleanup sign-off.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-alt);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">⚙️ Tooling</div>
+          <h2 class="section-title">Starter Stack</h2>
+          <p class="section-description">Suggested tools for quick bring-up; swap as needed.</p>
+        </div>
+        <div class="note-grid">
+          <article class="note-card">
+            <h3 class="note-title">Networking</h3>
+            <ul class="list">
+              <li>dnsmasq / bind for controlled DNS.</li>
+              <li>HAProxy / Traefik for routing experiments.</li>
+              <li>WireGuard for remote teammate access.</li>
+            </ul>
+          </article>
+          <article class="note-card">
+            <h3 class="note-title">Instrument</h3>
+            <ul class="list">
+              <li>Elastic or Loki stack for logs.</li>
+              <li>Grafana dashboards for quick trends.</li>
+              <li>Filebeat/Winlogbeat agents on all hosts.</li>
+            </ul>
+          </article>
+          <article class="note-card">
+            <h3 class="note-title">Reset</h3>
+            <ul class="list">
+              <li>VM snapshots per scenario.</li>
+              <li>Container compose files in git with tags.</li>
+              <li>Nightly cleanup scripts validated weekly.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
