@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Diablo ~ Pentesting / Hacking & Reporting Tool by AnLoMinus. Automate recon, organize pentest flows, and generate Markdown reports. Ethical use only." />
   <meta name="theme-color" content="#ff0033" />
+  <meta property="og:title" content="Diablo · Pentesting / Hacking & Reporting" />
+  <meta property="og:description" content="Automate recon, organize pentest flows, and generate Markdown reports with Diablo." />
+  <meta property="og:image" content="https://user-images.githubusercontent.com/51442719/170010336-39176f7e-b5dc-4f31-81ca-4b4144e6938c.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://github.com/Anlominus/Diablo" />
   <style>
     :root {
       --bg: #05020a;
@@ -43,6 +48,24 @@
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      background: #0f0a1c;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      color: var(--text);
+      text-decoration: none;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      left: 1rem;
     }
 
     /* Subtle noise / scanline overlay */
@@ -629,6 +652,35 @@
       color: var(--accent-2);
     }
 
+    .back-to-top {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(5,3,18,0.85);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top span.icon {
+      font-size: 1rem;
+    }
+
     @media (max-width: 900px) {
       .hero-grid {
         grid-template-columns: minmax(0,1fr);
@@ -665,6 +717,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to main content</a>
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="logo-mark">
@@ -1132,6 +1185,11 @@
     </section>
   </main>
 
+  <button class="back-to-top" type="button" aria-label="Back to top">
+    <span class="icon">⬆️</span>
+    <span>Back to top</span>
+  </button>
+
   <footer class="footer">
     <div class="container footer-inner">
       <div>
@@ -1145,5 +1203,24 @@
       </div>
     </div>
   </footer>
+  <script>
+    const backToTop = document.querySelector('.back-to-top');
+    const toggleBackToTop = () => {
+      if (!backToTop) return;
+      if (window.scrollY > 240) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    };
+
+    if (backToTop) {
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      window.addEventListener('scroll', toggleBackToTop);
+      toggleBackToTop();
+    }
+  </script>
 </body>
 </html>
