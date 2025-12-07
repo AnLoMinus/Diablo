@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diablo ~ Pentesting / Hacking & Reporting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Diablo ~ Pentesting / Hacking & Reporting Tool by AnLoMinus. Automate recon, organize pentest flows, and generate Markdown reports. Ethical use only." />
+  <meta name="theme-color" content="#ff0033" />
+  <style>
+    :root {
+      --bg: #05020a;
+      --bg-alt: #0a0714;
+      --card-bg: #0f0a1c;
+      --accent: #ff0033;
+      --accent-soft: rgba(255, 0, 80, 0.22);
+      --accent-2: #00ffcc;
+      --text: #f5f5f5;
+      --muted: #a0a0c0;
+      --border: rgba(255, 255, 255, 0.06);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-strong: 0 0 60px rgba(255, 0, 60, 0.35);
+      --shadow-soft: 0 0 35px rgba(0, 255, 204, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #250016 0, transparent 55%),
+        radial-gradient(circle at bottom, #00131a 0, transparent 60%),
+        linear-gradient(135deg, #010007 0, #060313 40%, #050008 100%);
+      color: var(--text);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Subtle noise / scanline overlay */
+    body::before {
+      content: "";
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      opacity: 0.11;
+      background-image:
+        linear-gradient(0deg, rgba(255,255,255,0.08) 1px, transparent 1px),
+        radial-gradient(circle at 0 0, rgba(255,255,255,0.12) 0, transparent 50%);
+      background-size: 100% 2px, 260px 260px;
+      mix-blend-mode: soft-light;
+      z-index: -1;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to right, rgba(5,2,16,0.94), rgba(5,0,8,0.92));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.5rem;
+      gap: 1rem;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .logo-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background:
+        conic-gradient(from 210deg, #ff0033, #ff9100, #ff00aa, #00ffcc, #ff0033);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-circle::after {
+      content: "D";
+      font-size: 18px;
+      font-weight: 800;
+      color: #05020a;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    .logo-text-sub {
+      font-size: 0.70rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .section {
+      padding: 3.3rem 0;
+      position: relative;
+    }
+
+    .hero {
+      padding-top: 3.5rem;
+      padding-bottom: 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.6rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: radial-gradient(circle at 0 0, rgba(0,255,204,0.18), transparent 60%);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-2);
+      box-shadow: 0 0 15px rgba(0,255,204,0.85);
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 3vw + 1rem, 3.2rem);
+      line-height: 1.1;
+      margin: 0 0 0.5rem;
+    }
+
+    .hero-title span.accent {
+      background: linear-gradient(120deg, #ff0033, #ff9100, #ff00aa);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.0rem;
+      color: var(--muted);
+      max-width: 34rem;
+      line-height: 1.5;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.17);
+      background: rgba(5,3,18,0.7);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      background: none;
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 0 0, #ff9100 0, transparent 55%),
+                  linear-gradient(130deg, #ff0033, #ff006e, #ff9100);
+      border-color: rgba(255,255,255,0.14);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .btn-outline {
+      border-color: rgba(255,255,255,0.22);
+      background: rgba(5,3,18,0.7);
+    }
+
+    .btn span.icon {
+      font-size: 1rem;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.35), transparent 60%);
+      mix-blend-mode: screen;
+      opacity: 0;
+      transform: translateX(-60%);
+      transition: opacity 0.2s ease-out, transform 0.25s ease-out;
+    }
+
+    .btn:hover::after {
+      opacity: 0.8;
+      transform: translateX(15%);
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      max-width: 26rem;
+    }
+
+    .hero-note strong {
+      color: var(--accent-2);
+      font-weight: 600;
+    }
+
+    .panel {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, rgba(255,0,80,0.35), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(0,255,204,0.18), transparent 50%),
+                  linear-gradient(145deg, rgba(10,7,30,0.98), rgba(5,3,16,0.96));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem 1rem 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(120deg, rgba(255,255,255,0.08) 1px, transparent 1px),
+                        linear-gradient(210deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 220px 220px, 280px 280px;
+      opacity: 0.18;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .panel-title {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .panel-dots {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .panel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+    }
+
+    .panel-dot.red { background: #ff3355; }
+    .panel-dot.yellow { background: #f0c94f; }
+    .panel-dot.green { background: #36ff92; }
+
+    .code-block {
+      font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      background: rgba(7, 3, 20, 0.9);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 0.7rem 0.75rem;
+      margin: 0;
+      color: #f2f2f2;
+      position: relative;
+      z-index: 1;
+    }
+
+    .code-line {
+      display: block;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .code-prefix {
+      color: #555a80;
+      margin-right: 0.3rem;
+    }
+
+    .code-cmd {
+      color: #e3fffc;
+    }
+
+    .code-comment {
+      color: #8d93ff;
+    }
+
+    .hero-preview {
+      margin-top: 0.8rem;
+      position: relative;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.12);
+      overflow: hidden;
+      background: #05030a;
+    }
+
+    .hero-preview img {
+      display: block;
+      width: 100%;
+      height: auto;
+      opacity: 0.92;
+    }
+
+    .hero-preview-caption {
+      position: absolute;
+      left: 0.8rem;
+      bottom: 0.5rem;
+      font-size: 0.72rem;
+      background: rgba(5,3,18,0.8);
+      padding: 0.16rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.26);
+      color: var(--muted);
+      backdrop-filter: blur(10px);
+    }
+
+    .section-header {
+      margin-bottom: 1.8rem;
+      text-align: left;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      margin: 0;
+    }
+
+    .section-description {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 32rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      padding: 0.9rem 0.9rem 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, var(--accent-soft), transparent 60%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .card-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .card-title {
+      font-size: 1.0rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-body {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+    }
+
+    .pill {
+      font-size: 0.7rem;
+      padding: 0.14rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(5,3,18,0.8);
+      color: var(--muted);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      font-size: 0.78rem;
+    }
+
+    .step {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      padding: 0.7rem 0.7rem;
+      position: relative;
+    }
+
+    .step-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .step-title {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .step-body {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    .subsection-title {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .list {
+      padding-left: 1.1rem;
+      margin: 0.4rem 0 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .list li {
+      margin-bottom: 0.2rem;
+    }
+
+    .warning {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,0,60,0.55);
+      background: radial-gradient(circle at 0 0, rgba(255,60,90,0.25), transparent 60%);
+      padding: 0.75rem 0.8rem;
+      font-size: 0.82rem;
+      color: #ffd1d9;
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      margin-top: 0.5rem;
+    }
+
+    .warning-icon {
+      font-size: 1.1rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.16rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      color: var(--muted);
+      background: rgba(5,3,18,0.85);
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 1.4rem 0 1.8rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-2);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .hero {
+        padding-top: 2.3rem;
+      }
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .timeline {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .split {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        justify-content: flex-start;
+      }
+      .cards-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .timeline {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="logo-mark">
+        <div class="logo-circle"></div>
+        <div>
+          <div class="logo-text-main">DIABLO</div>
+          <div class="logo-text-sub">PENTESTING · HACKING · REPORTING</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+        <a href="#usage">Usage</a>
+        <a href="#docs">Docs</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#security">Security</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="section hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span>Diablo · Pentesting Suite</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="accent">Diablo</span> – Automated Recon & Reporting
+          </h1>
+          <p class="hero-subtitle">
+            Structured <strong>Hacking / Pentesting & Reporting</strong> tool by AnLoMinus.  
+            Centralize recon, anonymized network flows and Markdown reporting into a single
+            battle-ready interface.
+          </p>
+
+          <div class="hero-meta">
+            <span>Shell · Linux · macOS · Termux</span>
+            <span>Markdown Reports · RepoCraft Layout</span>
+            <span>MIT License · Ethical Use Only</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://raw.githubusercontent.com/Anlominus/Diablo/main/Diablo">
+              <span class="icon">⬇️</span>
+              <span>Quick Download</span>
+            </a>
+            <a class="btn btn-outline" href="https://github.com/Anlominus/Diablo">
+              <span class="icon">💻</span>
+              <span>View on GitHub</span>
+            </a>
+            <a class="btn btn-outline" href="#docs">
+              <span class="icon">📚</span>
+              <span>Docs</span>
+            </a>
+          </div>
+
+          <p class="hero-note">
+            <strong>Legal & Ethical Notice:</strong>  
+            Run Diablo only on targets you own or have explicit written permission to test.
+          </p>
+        </div>
+
+        <div>
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">~/Diablo · quick start</div>
+              <div class="panel-dots">
+                <span class="panel-dot red"></span>
+                <span class="panel-dot yellow"></span>
+                <span class="panel-dot green"></span>
+              </div>
+            </div>
+            <pre class="code-block">
+<span class="code-line"><span class="code-prefix">$</span><span class="code-comment"># Download & run Diablo</span></span>
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">wget https://raw.githubusercontent.com/Anlominus/Diablo/main/Diablo</span></span>
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">chmod +x Diablo</span></span>
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">./Diablo</span></span>
+            </pre>
+          </div>
+
+          <div class="hero-preview">
+            <img src="https://user-images.githubusercontent.com/51442719/170010336-39176f7e-b5dc-4f31-81ca-4b4144e6938c.png"
+                 alt="Diablo pentesting menu preview" />
+            <div class="hero-preview-caption">
+              Diablo main menu · Recon, Anonymity & Reporting in one place
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">📖 About</div>
+          <h2 class="section-title">What is Diablo?</h2>
+          <p class="section-description">
+            Diablo is a focused <strong>Pentesting / Hacking & Reporting</strong> tool designed to:
+            automate reconnaissance, structure full assessment flows and generate clean Markdown
+            reports for each engagement.
+          </p>
+        </div>
+
+        <div class="split">
+          <div>
+            <h3 class="subsection-title">🎯 Core Goals</h3>
+            <ul class="list">
+              <li>Automate reconnaissance and vulnerability assessment steps.</li>
+              <li>Unify multiple pentest utilities under one consistent UI and log flow.</li>
+              <li>Generate Markdown reports per target/project, ready for hand-off.</li>
+              <li>Keep the workflow simple enough for learning, teaching and exams.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="subsection-title">🛠 Stack & Environment</h3>
+            <ul class="list">
+              <li>Shell-based toolchain (Linux, macOS, Termux).</li>
+              <li>Auto detection of package managers and dependencies.</li>
+              <li>Colorful TUI with structured menus and categories.</li>
+              <li>RepoCraft-style repository layout for long-term maintenance.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">✨ Features</div>
+          <h2 class="section-title">Red-Team Radar in One Console</h2>
+          <p class="section-description">
+            Diablo aligns to typical pentest phases: planning, recon, gaining access,
+            maintaining access, covering tracks and reporting – with clear menus and logs.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-label">[a] Anonymity Surfing</div>
+            <h3 class="card-title">Traffic Cloak</h3>
+            <p class="card-body">
+              Control anonymity tooling from a single menu:
+              check status, start/stop services and quickly inspect interfaces
+              using <code>ifconfig</code> / <code>ip a</code>.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Anonsurf</span>
+              <span class="pill">Network Manager</span>
+              <span class="pill">OpSec</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-label">[1] Planning &amp; Scoping</div>
+            <h3 class="card-title">Engagement Blueprint</h3>
+            <p class="card-body">
+              Define <strong>Target IP</strong>, project name and domain, then
+              bootstrap the initial Markdown report file for that engagement.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Target IP</span>
+              <span class="pill">Project Name</span>
+              <span class="pill">Domain</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-label">[2] Recon &amp; Vuln Scan</div>
+            <h3 class="card-title">Deep Surface Scan</h3>
+            <p class="card-body">
+              Orchestrate network, port, DNS, web and OSINT enumeration with
+              tools like <code>masscan</code>, <code>nmap</code>, <code>dig</code>,
+              <code>dnsrecon</code>, <code>nikto</code>, <code>enum4linux</code> and more.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Network</span>
+              <span class="pill">Ports</span>
+              <span class="pill">DNS</span>
+              <span class="pill">Web</span>
+              <span class="pill">OSINT</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-label">[3] In Development</div>
+            <h3 class="card-title">Gaining &amp; Maintaining Access</h3>
+            <p class="card-body">
+              Planned modules to help structure exploitation and persistence
+              in a controlled, logged fashion – aligned to ethical guidelines.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Exploitation Flow</span>
+              <span class="pill">Persistence</span>
+              <span class="pill">Logging</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-label">[4] In Development</div>
+            <h3 class="card-title">Covering Tracks</h3>
+            <p class="card-body">
+              Future capabilities to simulate or study log handling, cleanup and
+              blue-team detection, for lab and training purposes only.
+            </p>
+            <div class="pill-row">
+              <span class="pill">OpSec Training</span>
+              <span class="pill">Detection Lab</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-label">[5] In Development</div>
+            <h3 class="card-title">Analysis &amp; Reporting</h3>
+            <p class="card-body">
+              Extended report generation and risk analysis helpers built
+              around Markdown logs created during the run.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Markdown</span>
+              <span class="pill">Findings</span>
+              <span class="pill">Risk Levels</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section class="section" id="workflow">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">📡 Flow</div>
+          <h2 class="section-title">Typical Diablo Session</h2>
+          <p class="section-description">
+            Use Diablo as the backbone of your engagement: from scoping to
+            recon, while generating a per-project Markdown trail.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="step">
+            <div class="step-badge">Step 0</div>
+            <div class="step-title">Scope &amp; Rules</div>
+            <div class="step-body">
+              Confirm written permission, scope boundaries, time windows and
+              permitted techniques with the client or project owner.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-badge">Step 1</div>
+            <div class="step-title">Planning &amp; Scoping</div>
+            <div class="step-body">
+              Run <strong>[1]</strong>, define IP / ranges, project code name
+              and domains. Diablo spins up an initial report file.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-badge">Step 2</div>
+            <div class="step-title">Recon Menu</div>
+            <div class="step-body">
+              Use <strong>[2]</strong> to orchestrate network, port and
+              web recon. Let Diablo log tools and outputs for you.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-badge">Step 3</div>
+            <div class="step-title">Export Report</div>
+            <div class="step-body">
+              Use the generated Markdown file as a base for the final
+              engagement report, risks and remediation steps.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-badge">Step 4</div>
+            <div class="step-title">Review &amp; Debrief</div>
+            <div class="step-body">
+              Sanity-check findings, remove any unrelated data and deliver
+              only what is in scope and legally allowed to share.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTALL -->
+    <section class="section" id="install">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">🚀 Install</div>
+          <h2 class="section-title">Quick Install &amp; Requirements</h2>
+          <p class="section-description">
+            Diablo is a single script. Download, mark as executable and run.
+          </p>
+        </div>
+
+        <div class="split">
+          <div>
+            <h3 class="subsection-title">Linux / macOS</h3>
+            <pre class="code-block">
+<span class="code-line"><span class="code-prefix">$</span><span class="code-comment"># Download & run</span></span>
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">wget https://raw.githubusercontent.com/Anlominus/Diablo/main/Diablo</span></span>
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">chmod +x Diablo</span></span>
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">./Diablo</span></span>
+            </pre>
+
+            <h3 class="subsection-title" style="margin-top:0.9rem;">Termux (Android)</h3>
+            <pre class="code-block">
+<span class="code-line"><span class="code-prefix">$</span><span class="code-comment"># Same flow under Termux</span></span>
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">wget https://raw.githubusercontent.com/Anlominus/Diablo/main/Diablo</span></span>
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">chmod +x Diablo</span></span>
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">./Diablo</span></span>
+            </pre>
+          </div>
+
+          <div>
+            <h3 class="subsection-title">Dependencies</h3>
+            <pre class="code-block">
+<span class="code-line"><span class="code-prefix">$</span><span class="code-comment"># Ubuntu / Debian</span></span>
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">sudo apt-get install masscan nmap dnsutils whois nikto enum4linux dirb</span></span>
+
+<span class="code-line"><span class="code-prefix">$</span><span class="code-comment"># macOS</span></span>
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">brew install masscan nmap</span></span>
+            </pre>
+
+            <div class="warning">
+              <div class="warning-icon">⚠️</div>
+              <div>
+                Install and run these tools only on systems you own or are
+                explicitly authorized to test. Misuse can be illegal and harmful.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USAGE -->
+    <section class="section" id="usage">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">🎯 Usage</div>
+          <h2 class="section-title">From Menu to Markdown</h2>
+          <p class="section-description">
+            The core usage pattern is menu-driven. Diablo creates a per-project
+            log file like <code>TestProject-Diablo-Log.md</code> as you work.
+          </p>
+        </div>
+
+        <div class="split">
+          <div>
+            <h3 class="subsection-title">Basic Session</h3>
+            <pre class="code-block">
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">./Diablo</span></span>
+
+<span class="code-line"><span class="code-comment"># In the menu:</span></span>
+<span class="code-line"><span class="code-comment"># [1] Planning and Scoping</span></span>
+<span class="code-line"><span class="code-comment">#   - Set Target IP (e.g. 192.168.1.1)</span></span>
+<span class="code-line"><span class="code-comment">#   - Set Project Name (e.g. TestProject)</span></span>
+<span class="code-line"><span class="code-comment">#   - Set Domain (e.g. example.com)</span></span>
+
+<span class="code-line"><span class="code-comment"># [2] Recon & Vulnerability Assessment</span></span>
+<span class="code-line"><span class="code-comment">#   - Automated scans and enumeration flows</span></span>
+<span class="code-line"><span class="code-comment">#   - Report file: TestProject-Diablo-Log.md</span></span>
+            </pre>
+          </div>
+
+          <div>
+            <h3 class="subsection-title">Anonymity Example</h3>
+            <pre class="code-block">
+<span class="code-line"><span class="code-prefix">$</span><span class="code-cmd">./Diablo</span></span>
+
+<span class="code-line"><span class="code-comment"># [a] Anonymity Surfing</span></span>
+<span class="code-line"><span class="code-comment">#   [1] Status</span></span>
+<span class="code-line"><span class="code-comment">#   [2] Start anonsurf</span></span>
+<span class="code-line"><span class="code-comment">#   [3] Stop anonsurf</span></span>
+            </pre>
+            <p style="font-size:0.8rem;color:var(--muted);margin-top:0.4rem;">
+              Always combine anonymity tooling with proper authorization
+              and clear boundaries. OpSec is part of ethical hacking, not a
+              replacement for consent.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCS & ROADMAP -->
+    <section class="section" id="docs">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">📚 Docs &amp; Roadmap</div>
+          <h2 class="section-title">Dive Deeper into Diablo</h2>
+          <p class="section-description">
+            Use the documentation to understand architecture, get started
+            quickly and track future plans for the toolkit.
+          </p>
+        </div>
+
+        <div class="split">
+          <div>
+            <h3 class="subsection-title">Documentation</h3>
+            <ul class="list">
+              <li><a href="https://github.com/Anlominus/Diablo/tree/main/docs/INDEX.md">Index &amp; Overview</a></li>
+              <li><a href="https://github.com/Anlominus/Diablo/tree/main/docs/GETTING_STARTED.md">Getting Started</a></li>
+              <li><a href="https://github.com/Anlominus/Diablo/tree/main/docs/ARCHITECTURE.md">Architecture</a></li>
+              <li><a href="https://github.com/Anlominus/Diablo/tree/main/docs/FAQ.md">FAQ</a></li>
+            </ul>
+
+            <div class="tag-row">
+              <span class="tag">Markdown First</span>
+              <span class="tag">RepoCraft Layout</span>
+              <span class="tag">CI / CD Ready</span>
+            </div>
+          </div>
+
+          <div id="roadmap">
+            <h3 class="subsection-title">Roadmap Snapshot</h3>
+            <ul class="list">
+              <li><strong>Done:</strong> Planning &amp; Scoping, Recon &amp; Vuln Assessment, Anonymity Surfing.</li>
+              <li><strong>Done:</strong> RepoCraft structure, CI/CD workflows, extended documentation.</li>
+              <li><strong>In Progress:</strong> Gaining &amp; Maintaining Access modules.</li>
+              <li><strong>In Progress:</strong> Covering tracks &amp; Blue-Team perspective training.</li>
+              <li><strong>Planned:</strong> Rich Analysis &amp; Reporting layer and a Web UI.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECURITY -->
+    <section class="section" id="security">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">🔐 Security &amp; Ethics</div>
+          <h2 class="section-title">Use Diablo Responsibly</h2>
+          <p class="section-description">
+            Diablo is built for learning, lab work and authorized professional
+            engagements. Responsibility and law come first.
+          </p>
+        </div>
+
+        <div class="warning">
+          <div class="warning-icon">🚨</div>
+          <div>
+            <strong>Ethical Use Only.</strong><br />
+            Use Diablo strictly on assets you own or are explicitly allowed
+            to test. Always comply with local laws, contract terms and
+            organizational security policies.
+          </div>
+        </div>
+
+        <div style="margin-top:1rem;font-size:0.82rem;color:var(--muted);">
+          For vulnerability disclosures, follow the project’s
+          <a href="https://github.com/Anlominus/Diablo/tree/main/SECURITY.md">Security Policy</a> and
+          open a private, responsible channel whenever possible.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        Diablo ~ Pentesting / Hacking &amp; Reporting · MIT License · Made with ❤️ in Israel
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/Anlominus/Diablo">GitHub Repo</a>
+        <a href="https://github.com/Anlominus/Diablo/issues">Report Bugs</a>
+        <a href="https://github.com/Anlominus/Diablo/issues">Request Features</a>
+        <a href="https://github.com/Anlominus/Diablo/tree/main/docs">Docs</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
