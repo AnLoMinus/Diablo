@@ -557,6 +557,77 @@
       margin-bottom: 0.15rem;
     }
 
+    .note-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .note-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .note-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 15%, var(--accent-soft), transparent 65%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .note-title {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .note-title span.icon {
+      font-size: 1.2rem;
+    }
+
+    .note-body {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 0 0 0.7rem;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 14px rgba(255, 0, 51, 0.35);
+    }
+
+    .status-dot.ready { background: #36ff92; box-shadow: 0 0 14px rgba(54,255,146,0.55); }
+    .status-dot.warn { background: #f0c94f; box-shadow: 0 0 14px rgba(240,201,79,0.45); }
+    .status-dot.info { background: #00d1ff; box-shadow: 0 0 14px rgba(0,209,255,0.45); }
+
     .step-title {
       font-size: 0.9rem;
       margin-bottom: 0.3rem;
@@ -697,6 +768,9 @@
       .split {
         grid-template-columns: minmax(0,1fr);
       }
+      .note-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
     }
 
     @media (max-width: 640px) {
@@ -714,6 +788,15 @@
         grid-template-columns: minmax(0,1fr);
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -727,11 +810,12 @@
           <div class="logo-text-sub">PENTESTING · HACKING · REPORTING</div>
         </div>
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#features">Features</a>
         <a href="#install">Install</a>
         <a href="#usage">Usage</a>
+        <a href="#readiness">Readiness</a>
         <a href="#docs">Docs</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#security">Security</a>
@@ -739,7 +823,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- HERO -->
     <section class="section hero" id="top">
       <div class="container hero-grid">
@@ -1107,6 +1191,42 @@
               replacement for consent.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- READINESS -->
+    <section class="section" id="readiness">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">✅ Readiness</div>
+          <h2 class="section-title">Pre-flight &amp; Reporting Guardrails</h2>
+          <p class="section-description">
+            Use these quick checks before starting and before handing off any report.
+            They keep engagements traceable, authorized and consistent.
+          </p>
+        </div>
+
+        <div class="note-grid">
+          <article class="note-card">
+            <h3 class="note-title"><span class="icon">📝</span> Before You Run Diablo</h3>
+            <p class="note-body">Ensure the environment is safe to touch and every action is approved.</p>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>Authorization and scope are documented.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Network changes are coordinated with owners.</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Fallback contacts are ready if services degrade.</li>
+            </ul>
+          </article>
+
+          <article class="note-card">
+            <h3 class="note-title"><span class="icon">📤</span> Before You Deliver</h3>
+            <p class="note-body">Ship only what is necessary for remediation and learning.</p>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>Sensitive or out-of-scope data removed.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Risks prioritized with actionable fixes.</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Logs archived securely for audit and lessons learned.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
