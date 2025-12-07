@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diablo · Reporting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Reporting guidance and templates for Diablo findings." />
+  <style>
+    :root {
+      --bg: #05020a;
+      --bg-alt: #0a0714;
+      --card-bg: #0f0a1c;
+      --accent: #ff0033;
+      --accent-soft: rgba(255, 0, 80, 0.22);
+      --accent-2: #00ffcc;
+      --text: #f5f5f5;
+      --muted: #a0a0c0;
+      --border: rgba(255, 255, 255, 0.06);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-strong: 0 0 60px rgba(255, 0, 60, 0.35);
+      --shadow-soft: 0 0 35px rgba(0, 255, 204, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #250016 0, transparent 55%),
+        radial-gradient(circle at bottom, #00131a 0, transparent 60%),
+        linear-gradient(135deg, #010007 0, #060313 40%, #050008 100%);
+      color: var(--text);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .skip-link { position: absolute; left: -999px; top: 0.5rem; padding: 0.5rem 0.9rem; background: #0f0a1c; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-soft); color: var(--text); text-decoration: none; z-index: 100; }
+    .skip-link:focus, .skip-link:focus-visible { left: 1rem; outline: 2px solid var(--accent-2); outline-offset: 3px; }
+
+    body::before {
+      content: "";
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      opacity: 0.11;
+      background-image:
+        linear-gradient(0deg, rgba(255,255,255,0.08) 1px, transparent 1px),
+        radial-gradient(circle at 0 0, rgba(255,255,255,0.12) 0, transparent 50%);
+      background-size: 100% 2px, 260px 260px;
+      mix-blend-mode: soft-light;
+      z-index: -1;
+    }
+
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+    .topbar { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: linear-gradient(to right, rgba(5,2,16,0.94), rgba(5,0,8,0.92)); border-bottom: 1px solid var(--border); }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 1.5rem; gap: 1rem; }
+    .logo-mark { display: flex; align-items: center; gap: 0.7rem; }
+    .logo-circle { width: 32px; height: 32px; border-radius: 999px; background: conic-gradient(from 210deg, #ff0033, #ff9100, #ff00aa, #00ffcc, #ff0033); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; }
+    .logo-circle::after { content: "D"; font-size: 18px; font-weight: 800; color: #05020a; text-shadow: 0 0 10px rgba(0,0,0,0.6); }
+    .logo-text-main { font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.85rem; }
+    .logo-text-sub { font-size: 0.70rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.18em; }
+    .nav-links { display: flex; gap: 1.1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.16em; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a { color: var(--muted); text-decoration: none; position: relative; padding-bottom: 0.2rem; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width 0.2s ease-out; }
+    .nav-links a:hover::after, .nav-links a[aria-current="page"]::after { width: 100%; }
+
+    .section { padding: 3.3rem 0; position: relative; }
+    .section-header { display: grid; gap: 0.5rem; max-width: 760px; margin-bottom: 2rem; }
+    .section-kicker { font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-2); }
+    .section-title { font-size: 2.15rem; margin: 0; letter-spacing: -0.02em; }
+    .section-description { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    .note-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .note-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.2rem; box-shadow: var(--shadow-soft); }
+    .note-title { margin: 0 0 0.4rem 0; display: flex; align-items: center; gap: 0.4rem; letter-spacing: -0.01em; }
+    .note-body { margin: 0 0 0.8rem 0; color: var(--muted); line-height: 1.5; }
+    .checklist { padding-left: 1.2rem; margin: 0 0 0.9rem 0; color: var(--text); line-height: 1.5; }
+    .checklist-item { position: relative; list-style: none; margin-bottom: 0.4rem; padding-left: 1.2rem; }
+    .status-dot { position: absolute; left: 0; top: 0.35rem; width: 0.6rem; height: 0.6rem; border-radius: 999px; }
+    .ready { background: #2add6d; } .info { background: #00b7ff; } .warn { background: #ffc107; }
+    .tag { display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 999px; background: var(--accent-soft); color: var(--text); padding: 0.35rem 0.85rem; font-size: 0.85rem; text-decoration: none; border: 1px solid var(--border); }
+    .list { margin: 0; padding-left: 1.2rem; color: var(--muted); line-height: 1.6; }
+    .list li + li { margin-top: 0.35rem; }
+
+    @media (max-width: 640px) { .topbar-inner { flex-direction: column; align-items: flex-start; } .nav-links { justify-content: flex-start; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="logo-mark">
+        <div class="logo-circle"></div>
+        <div>
+          <div class="logo-text-main">DIABLO</div>
+          <div class="logo-text-sub">PENTESTING · HACKING · REPORTING</div>
+        </div>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#install">Install</a>
+        <a href="index.html#usage">Usage</a>
+        <a href="index.html#readiness">Readiness</a>
+        <a href="index.html#docs">Docs</a>
+        <a href="index.html#pages">Pages</a>
+        <a href="playbooks.html">Playbooks</a>
+        <a href="lab-setup.html">Lab Setup</a>
+        <a href="reporting.html" aria-current="page">Reporting</a>
+        <a href="index.html#roadmap">Roadmap</a>
+        <a href="index.html#security">Security</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section">
+      <div class="container section-header">
+        <div class="section-kicker">📝 Reporting</div>
+        <h1 class="section-title">Ship Clear, Actionable Findings</h1>
+        <p class="section-description">
+          Use these outlines to keep Diablo reports concise, reproducible, and tailored to your audience.
+          Pair them with evidence packs so remediation is fast.
+        </p>
+        <a class="tag" href="index.html#readiness">Check readiness before delivery</a>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-alt);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">📄 Templates</div>
+          <h2 class="section-title">Markdown Skeletons</h2>
+          <p class="section-description">Copy, adjust, and keep consistent across engagements.</p>
+        </div>
+        <div class="note-grid">
+          <article class="note-card">
+            <h3 class="note-title">Executive Snapshot</h3>
+            <ul class="list">
+              <li>Context (scope, timeline, owners).</li>
+              <li>Top 3 risks with business impact.</li>
+              <li>Remediation ETA and dependencies.</li>
+            </ul>
+          </article>
+          <article class="note-card">
+            <h3 class="note-title">Technical Finding</h3>
+            <ul class="list">
+              <li>Title + severity + asset identifier.</li>
+              <li>Repro steps with commands and responses.</li>
+              <li>Evidence links (hashes, screenshots, pcaps).</li>
+              <li>Fix guidance + validation steps.</li>
+            </ul>
+          </article>
+          <article class="note-card">
+            <h3 class="note-title">Changelog</h3>
+            <ul class="list">
+              <li>Runs executed (date/time/host).</li>
+              <li>Tools and versions used.</li>
+              <li>Cleanup and rollback actions taken.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">🎯 Delivery</div>
+          <h2 class="section-title">Tailor for the Audience</h2>
+          <p class="section-description">Pick a delivery path that meets stakeholders where they are.</p>
+        </div>
+
+        <div class="note-grid">
+          <article class="note-card">
+            <h3 class="note-title">Stakeholder Brief</h3>
+            <p class="note-body">Slides or PDF with visuals.</p>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>One slide per critical issue.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Impact framed in business terms.</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Clear next steps and owners.</li>
+            </ul>
+          </article>
+
+          <article class="note-card">
+            <h3 class="note-title">Engineer Hand-off</h3>
+            <p class="note-body">Repo or wiki entry with diffs.</p>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>Commands, configs, and sample payloads.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Tests to verify the fix (unit/integration).</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Rollback steps documented.</li>
+            </ul>
+          </article>
+
+          <article class="note-card">
+            <h3 class="note-title">Leadership Summary</h3>
+            <p class="note-body">Concise email or memo.</p>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>One paragraph of highlights.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Risk trend (improving/regressing).</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Asks: budget, tooling, or policy changes.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-alt);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">✅ QA</div>
+          <h2 class="section-title">Pre-Delivery Checklist</h2>
+          <p class="section-description">Last pass before you send anything out.</p>
+        </div>
+
+        <div class="note-grid">
+          <article class="note-card">
+            <h3 class="note-title">Content</h3>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>Redacted secrets and client-identifying data.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>CVSS/impact ratings match evidence.</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Findings mapped to scope and ticket IDs.</li>
+            </ul>
+          </article>
+
+          <article class="note-card">
+            <h3 class="note-title">Format</h3>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>Headings and numbering consistent.</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Images compressed; hashes recorded.</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Accessibility tags on diagrams/charts.</li>
+            </ul>
+          </article>
+
+          <article class="note-card">
+            <h3 class="note-title">Handoff</h3>
+            <ul class="checklist">
+              <li class="checklist-item"><span class="status-dot ready" aria-hidden="true"></span>Delivery channel agreed (email, portal, live readout).</li>
+              <li class="checklist-item"><span class="status-dot info" aria-hidden="true"></span>Links to evidence packs and lab notes.</li>
+              <li class="checklist-item"><span class="status-dot warn" aria-hidden="true"></span>Plan for follow-up validation scheduled.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
