@@ -256,6 +256,8 @@ brew install masscan nmap
 - 💡 [Request Features](https://github.com/Anlominus/Diablo/issues)
 - 📖 [Documentation](./docs/)
 - 🤝 [Contributing](./CONTRIBUTING.md)
+- ⚠️ [Purification Grid](https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221a_XBsk_mXP_0iSBqYimXo7HbavNZ-uJW%22%5D,%22action%22:%22open%22,%22userId%22:%22103930013484441813523%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing
+)
 
 ---
 
@@ -275,3 +277,4 @@ brew install masscan nmap
 ![Made with Love](https://img.shields.io/badge/Made%20With-Love-red)
 
 </div>
+
